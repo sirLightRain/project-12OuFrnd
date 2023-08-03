@@ -28,13 +28,7 @@ function handlerAdd(evt) {
   const currentProduct = topBooks.find(({ id }) => id === productId);
   const idx = products.findIndex(({ id }) => id === productId);
 
-  // -1 // true
-  // 0 > ... // false
-
-  // -(0 + 1) //0+1 =>-1 // true
-  // -(-1 + 1)// -0 // false
   if (idx !== -1) {
-    // !!~idx
     products[idx].qty += 1;
   } else {
     currentProduct.qty = 1;
