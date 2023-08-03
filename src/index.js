@@ -1,3 +1,3 @@
-import { test } from "./js/bestSellers";
+import { test } from "./js/bestsellers";
 
-test();
+test("Alex");
