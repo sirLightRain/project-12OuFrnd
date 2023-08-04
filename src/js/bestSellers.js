@@ -41,4 +41,4 @@ function test(name) {
   console.log(`Hi, ${name}`);
 }
 
-export { test };
+export { createMarkup };
