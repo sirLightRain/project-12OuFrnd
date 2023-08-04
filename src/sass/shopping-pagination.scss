@@ -20,8 +20,8 @@
 // .pgs-next-list {}
 
 .page-item {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
 }
 .page-number {
     width: 100%;
@@ -52,7 +52,6 @@
     stroke-width: 1px;
     stroke: #111;
     fill: none;
-    // position: relative;
 }
 
 .ellipse-icon-yellow {
@@ -129,7 +128,7 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
-    line-height: 1; 
+    line-height: 1.2; 
     text-align: center;
     text-decoration: none;
     
@@ -141,3 +140,16 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+  .page-item:is(:hover, :focus) {
+    animation: animatePg 1500ms ease-in-out 500ms;
+  }
+
+  @keyframes animatePg {
+    0% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
