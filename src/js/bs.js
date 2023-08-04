@@ -29,18 +29,26 @@ function getScreenWidth() {
 }
 
 let lastScreenWidth = 0;
+let resizeTimeout;
 
 // Функція для перевірки зміни ширини екрану і виклику відповідних дій зі затримкою
 function handleScreenResize() {
-  const screenWidth = getScreenWidth();
+  // const screenWidth = getScreenWidth();
 
-  if (screenWidth !== lastScreenWidth) {
-    lastScreenWidth = screenWidth;
+  // if (screenWidth !== lastScreenWidth) {
+  //   lastScreenWidth = screenWidth;
 
-    if (screenWidth === 768 || screenWidth === 1440) {
+  //   displayTopBooksByCategory(screenWidth);
+  // }
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    const screenWidth = getScreenWidth();
+
+    if (screenWidth !== lastScreenWidth) {
+      lastScreenWidth = screenWidth;
       displayTopBooksByCategory(screenWidth);
     }
-  }
+  }, 300);
 }
 
 // Додати обробник події при зміні розміру екрану
@@ -52,7 +60,7 @@ async function displayTopBooksByCategory(screenWidth) {
 
   try {
     const data = await fetchTopBooks(url);
-    console.log('Список з книгами: ', data);
+    // console.log('Список з книгами: ', data);
 
     const bestSellersContainer = document.querySelector('.best-sellers-books');
 
