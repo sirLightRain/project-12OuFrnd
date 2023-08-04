@@ -1,13 +1,8 @@
 // Контейнер для категорій
-.js-list-bestsellers {
+.js-category {
   display: flex;
   flex-direction: column;
-  // justify-content: center;
 
-  @media screen and (min-width: 768px) {
-    flex-direction: row;
-    flex-wrap: nowrap;
-  }
 }
 
 // Контейнер кнопки See more

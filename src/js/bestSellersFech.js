@@ -1,6 +1,6 @@
 // import { createMarkup } from './bestsellers';
 
-// Функція для отримання топових книг з сервера
+// Функція для отримання топових книг з по категоріям
 async function fetchTopBooks(url) {
   const response = await fetch(url);
   if (!response.ok) {
@@ -28,17 +28,15 @@ function createBookMarkup(arr) {
   return arr
     .map(
       ({ _id, book_image, list_name, author }) => `
-      <h2>Category: ${list_name}</h2>
-  <li data-id="${_id}" class="js-product">
-      <img src="${book_image}" alt="${list_name}" width='${width}' height='${height}'/>
-      <h3>${list_name}</h3>
-      <p>${author}</p>
-      <div class="js-button-container">
-          <button class="js-see-more">See more</button>
-      </div>
-  </li>
-  `
-    )
+        <li data-id="${_id}" class="js-product">
+            <img src="${book_image}" alt="${list_name}" width='${width}' height='${height}'/>
+            <h3>${list_name}</h3>
+            <p>${author}</p>
+            <div class="js-button-container">
+                <button class="js-see-more">See more</button>
+            </div>
+        </li>
+        `)
     .join('');
 }
 
@@ -48,9 +46,9 @@ function createBooksListMarkup(books, booksInCategory) {
 }
 
 // Функція для створення розмітки для категорії
-function createCategoryMarkup( booksMarkup) {
+function createCategoryMarkup(list_name, booksMarkup) {
   return `
-
+      <h2>Category: ${list_name}</h2>
       <ul>${booksMarkup}</ul>
     `;
 }
