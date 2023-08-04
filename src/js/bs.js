@@ -31,15 +31,21 @@ function getScreenWidth() {
 let lastScreenWidth = 0;
 let resizeTimeout;
 
+// // Функція для перемальовки кнопки "See more"
+// function redrawSeeMoreBtn() {
+//   const seeMoreBtns = document.querySelectorAll('.see-more-btn');
+//   seeMoreBtns.forEach(btn => {
+//     // Виконуємо затримку за допомогою setTimeout
+//     setTimeout(() => {
+//       btn.style.display = 'none';
+//       btn.offsetHeight; // Тригеримо перерисування елемента
+//       btn.style.display = 'block';
+//     }, 300); // Затримка 300 мс (така ж, як для карток)
+//   });
+// }
+
 // Функція для перевірки зміни ширини екрану і виклику відповідних дій зі затримкою
 function handleScreenResize() {
-  // const screenWidth = getScreenWidth();
-
-  // if (screenWidth !== lastScreenWidth) {
-  //   lastScreenWidth = screenWidth;
-
-  //   displayTopBooksByCategory(screenWidth);
-  // }
   clearTimeout(resizeTimeout);
   resizeTimeout = setTimeout(() => {
     const screenWidth = getScreenWidth();
