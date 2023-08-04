@@ -39,22 +39,44 @@ async function getTopBooksByCategory() {
 
     const bestSellersContainer = document.querySelector('.js-list-bestsellers');
 
+    // Очистимо контейнер перед початком виводу
+    bestSellersContainer.innerHTML = '';
+
     // Для кожної категорії створюємо розмітку
-    for(const {list_name, books} of data) {
-        // Створюємо елемент для заголовку категорії  
-        const categoryHeader = document.createElement('p');
-        // Передаємо йому текстовий вміст
-        categoryHeader.textContent = `Category: ${list_name}`;
-        // Та розміщуємо у контейнері
-        bestSellersContainer.appendChild(categoryHeader);
+    for (const { list_name, books } of data) {
+      // Створюємо елемент для заголовку категорії
+      const categoryHeader = document.createElement('p');
+      // Передаємо йому текстовий вміст
+      categoryHeader.textContent = `Category: ${list_name}`;
+      // Та розміщуємо у контейнері
+      bestSellersContainer.appendChild(categoryHeader);
 
-        // Створюємо елемент списку для розмітки книг
-        const booksList = document.createElement('ul');
-        // Генеруємо розмітку для книг та додаємо її до списку
-        booksList.innerHTML = createMarkup(books);
-        bestSellersContainer.appendChild(booksList);
+      // Створюємо елемент списку для розмітки книг
+      const booksList = document.createElement('ul');
+      // Генеруємо розмітку для книг та додаємо її до списку
+    //   booksList.innerHTML = createMarkup(books);
+
+      // Додамо кожну книгу окремо
+      books.forEach(book => {
+        const bookItem = document.createElement('li');
+        bookItem.innerHTML = createMarkup([book]);
+        booksList.appendChild(bookItem);
+
+        // Додаємо кнопку See more
+        const btnSeeMore = document.createElement('button');
+        btnSeeMore.textContent = 'See more';
+        btnSeeMore.classList.add('js-see-more');
+        bookItem.appendChild(btnSeeMore);
+      });
+
+      bestSellersContainer.appendChild(booksList);
+
     }
-
+    // Після створення всіх карточок книг і кнопок "See More", додамо обробник події для кожної кнопки
+    const seeMoreButtons = document.querySelectorAll('.js-see-more');
+    seeMoreButtons.forEach(button => {
+      button.addEventListener('click', handleSeeMore);
+    });
   } catch (error) {
     console.error(error);
   }

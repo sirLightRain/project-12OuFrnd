@@ -1,3 +1,9 @@
+
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Мій Код
+
+
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Код ОЛега 
+
 const container = document.querySelector('.js-list-bestsellers');
 const PRODUCT_LS_KEY = 'Shopping List';
 
@@ -9,10 +15,11 @@ function createMarkup(arr) {
     .map(
       ({ _id, book_image, list_name, author }) => `
     <li data-id="${_id}" class="js-product">
-        <img src="${book_image}" alt="${list_name}" width="200"/>
+        <img src="${book_image}" alt="${list_name}" width="335" height="485"/>
         <h3>${list_name}</h3>
         <p>${author}</p>
-  </li>`
+    </li>
+    `
     )
     .join('');
 }
