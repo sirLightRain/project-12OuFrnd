@@ -1,3 +1,7 @@
-import { test } from "./js/bestsellers";
+// import { test } from "./js/bestsellers";
+// test("Alex");
 
-test("Alex");
+import { fetchBestSellers } from "./js/bestSellersFech";
+
+
+fetchBestSellers();
