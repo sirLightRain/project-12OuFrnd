@@ -1,7 +1,7 @@
 // import { test } from "./js/bestsellers";
 // test("Alex");
 
-import { getTopBooksByCategory } from "./js/bestSellersFech";
+import { displayTopBooksByCategory } from "./js/bestSellersFech";
 
 
-getTopBooksByCategory();
+displayTopBooksByCategory();

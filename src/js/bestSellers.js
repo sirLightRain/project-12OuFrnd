@@ -18,6 +18,9 @@ function createMarkup(arr) {
         <img src="${book_image}" alt="${list_name}" width="335" height="485"/>
         <h3>${list_name}</h3>
         <p>${author}</p>
+        <div class="js-button-container">
+            <button class="js-see-more">See more</button>
+        </div>
     </li>
     `
     )

@@ -1,14 +1,21 @@
 .js-list-bestsellers {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  // margin-left: auto;
+  // margin-right: auto;
+}
+
+// Контейнер кнопки See more
+.js-button-container {
     display: flex;
-    flex-direction: column;
-    
-    justify-content: center;
-    // margin-left: auto;
-    // margin-right: auto;
+    justify-content: flex-end;
 }
 
 // Кнопка See more
 .js-see-more {
-    float: right;
-
-  }
+  color: var(--black);
+//   display: flex;
+//   justify-content: flex-end;
+}

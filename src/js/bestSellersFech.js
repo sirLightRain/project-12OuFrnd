@@ -1,78 +1,49 @@
-// const urlList = {
-//   // API з книгами
-//   API_BOOKS: 'https://books-backend.p.goit.global/api-docs/',
-//   // Перелік категорій книг
-//   ALL_CATEGORY: 'https://books-backend.p.goit.global/books/category-list',
-//   // Популярні книги, що належать до усіх категорій
-//   ALL_CAT_POP_B: 'https://books-backend.p.goit.global/books/top-books',
-//   // Книги окремої категорії
-//   CERTAIN_CAT_B:
-//     'https://books-backend.p.goit.global/books/category?category=${category_name}',
-//   // Детальна інформація про книгу
-//   INFO_B: 'https://books-backend.p.goit.global/books/bookId',
-// };
-
-// function getTopBooksByCategory() {
-//   fetch(urlList.ALL_CAT_POP_B)
-//     .then(response => response.json())
-//     // .then(response => console.log(response))
-//     .then(data => {
-//       console.log('Популярні книги, що належать до усіх категорій: ', data);
-//     })
-//     .catch(err=>console.log(err))
-// }
-
 import { createMarkup } from './bestsellers';
 
-async function getTopBooksByCategory() {
+// Функція для отримання топових книг з сервера
+async function fetchTopBooks(url) {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Помилка запиту. Статус помилки: ${response.status}`);
+  }
+  const data = await response.json();
+  return data;
+}
+
+// Функція для створення розмітки для списку книг
+function createBooksListMarkup(books) {
+  return createMarkup(books.slice(0,2));
+}
+
+// Функція для створення розмітки для категорії
+function createCategoryMarkup(list_name, booksMarkup) {
+  return `
+      <h2>Category: ${list_name}</h2>
+      <ul>${booksMarkup}</ul>
+    `;
+}
+
+// Функція для виведення перших двох категорій з топовими книгами
+async function displayTopBooksByCategory() {
   const url = 'https://books-backend.p.goit.global/books/top-books';
 
   try {
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      throw new Error(`Помилка запиту. Статус помилки: ${response.status}`);
-    }
-
-    const data = await response.json();
-    console.log('По 5 топових книг з кожної категорії: ', data);
+    const data = await fetchTopBooks(url);
+    console.log('Перші 2 категорії з топовими книгами: ', data.slice(0, 2));
 
     const bestSellersContainer = document.querySelector('.js-list-bestsellers');
 
     // Очистимо контейнер перед початком виводу
     bestSellersContainer.innerHTML = '';
 
-    // Для кожної категорії створюємо розмітку
-    for (const { list_name, books } of data) {
-      // Створюємо елемент для заголовку категорії
-      const categoryHeader = document.createElement('p');
-      // Передаємо йому текстовий вміст
-      categoryHeader.textContent = `Category: ${list_name}`;
-      // Та розміщуємо у контейнері
-      bestSellersContainer.appendChild(categoryHeader);
-
-      // Створюємо елемент списку для розмітки книг
-      const booksList = document.createElement('ul');
-      // Генеруємо розмітку для книг та додаємо її до списку
-    //   booksList.innerHTML = createMarkup(books);
-
-      // Додамо кожну книгу окремо
-      books.forEach(book => {
-        const bookItem = document.createElement('li');
-        bookItem.innerHTML = createMarkup([book]);
-        booksList.appendChild(bookItem);
-
-        // Додаємо кнопку See more
-        const btnSeeMore = document.createElement('button');
-        btnSeeMore.textContent = 'See more';
-        btnSeeMore.classList.add('js-see-more');
-        bookItem.appendChild(btnSeeMore);
-      });
-
-      bestSellersContainer.appendChild(booksList);
-
+    // Виводимо розмітку для перших двох категорій
+    for (const { list_name, books } of data.slice(0, 2)) {
+      const booksMarkup = createBooksListMarkup(books);
+      const categoryMarkup = createCategoryMarkup(list_name, booksMarkup);
+      bestSellersContainer.insertAdjacentHTML('beforeend', categoryMarkup);
     }
-    // Після створення всіх карточок книг і кнопок "See More", додамо обробник події для кожної кнопки
+
+    // Додаємо обробник події для кнопок "See More"
     const seeMoreButtons = document.querySelectorAll('.js-see-more');
     seeMoreButtons.forEach(button => {
       button.addEventListener('click', handleSeeMore);
@@ -82,4 +53,4 @@ async function getTopBooksByCategory() {
   }
 }
 
-export { getTopBooksByCategory };
+export { displayTopBooksByCategory };
