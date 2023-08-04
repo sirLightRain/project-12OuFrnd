@@ -14,7 +14,7 @@ function createBookMarkup(arr) {
     .map(
       ({ _id, book_image, list_name, author, title }) => `
         <li data-id="${_id}" class="js-product">
-            <img src="${book_image}" alt="${list_name}"/>
+            <img src="${book_image}" alt="${list_name}" class="img-size"/>
             <h3>${title}</h3>
             <p>${author}</p>
         </li>

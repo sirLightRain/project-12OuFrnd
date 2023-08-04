@@ -2,17 +2,25 @@
 .js-category {
   display: flex;
   flex-direction: column;
-
 }
 
-// Контейнер кнопки See more
-.js-button-container {
-    display: flex;
-    justify-content: flex-end;
+// Розміри обкладинок книг
+.img-size {
+  width: 335px;
+  height: 485px;
 }
 
-// Кнопка See more
-.js-see-more {
-  color: var(--black);
+// Змінюємо розміри зображення при переході на більші екрани
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .img-size {
+    width: 218px;
+    height: 316px;
+  }
 }
 
+@media screen and (min-width: 1440px) {
+  .img-size {
+    width: 180px;
+    height: 256px;
+  }
+}
