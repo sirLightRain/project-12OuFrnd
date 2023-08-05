@@ -1,5 +1,5 @@
-function test() {
-  console.log('Тут має бути запит :)');
-}
+// function test() {
+//   console.log('Тут має бути запит :)');
+// }
 
-export { test };
+// export { test };

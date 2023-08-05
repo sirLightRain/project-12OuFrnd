@@ -1,3 +1,4 @@
-import { test } from "./js/bestSellers";
+//Pop Up
+import './js/modal.js'
 
-test();
+
