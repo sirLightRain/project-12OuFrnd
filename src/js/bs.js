@@ -1,5 +1,5 @@
 
-// Функція для отримання топових книг з по категоріям
+//* Функція для отримання топових книг з по категоріям
 async function fetchTopBooks(url) {
   const response = await fetch(url);
   if (!response.ok) {
@@ -9,7 +9,7 @@ async function fetchTopBooks(url) {
   return data;
 }
 
-// Функція для збереження даних у локальному сховищі
+//* Функція для збереження даних у локальному сховищі
 function saveDataToLocal(data) {
   try {
     localStorage.setItem('topBooksData', JSON.stringify(data));
@@ -18,7 +18,7 @@ function saveDataToLocal(data) {
   }
 }
 
-// Функція для отримання даних з локального сховища
+//* Функція для отримання даних з локального сховища
 function getDataFromLocal() {
   try {
     const localData = localStorage.getItem('topBooksData');
@@ -29,14 +29,14 @@ function getDataFromLocal() {
   }
 }
 
-// ОСНОВНА Функція відмальовки
+//* ОСНОВНА Функція відмальовки
 async function displayTopBooksByCategory(screenWidth) {
   try {
-    // ********* ЗМІНА: Отримуємо дані з локального сховища
+    // Отримуємо дані з локального сховища
     const localData = getDataFromLocal();
 
     if (localData) {
-      // Якщо дані є в локальному сховищі, використовуйте їх без звернення до сервера
+      // Якщо дані є в локальному сховищі, беремо їх
       console.log('Дані з локального сховища: ', localData);
       // Виконуйте далі вашу логіку з використанням даних
       renderData(localData, screenWidth);
@@ -45,7 +45,7 @@ async function displayTopBooksByCategory(screenWidth) {
       const url = 'https://books-backend.p.goit.global/books/top-books';
       const data = await fetchTopBooks(url);
 
-      // ********* ЗМІНА: Збережіть дані у локальному сховищі для подальшого використання
+      // Зберігаємо дані у локальному сховищі для подальшого використання
       saveDataToLocal(data);
       console.log('Дані з сервера: ', data);
       // Виконайте далі вашу логіку з використанням даних
@@ -71,7 +71,7 @@ function createBookMarkup(arr) {
     .join('');
 }
 
-// Функція для відмальовки даних
+//* Функція для відмальовки даних
 function renderData(data, screenWidth) {
   const bestSellersContainer = document.querySelector('.best-sellers-books');
 
@@ -86,13 +86,6 @@ function renderData(data, screenWidth) {
     booksPerCategory = 3;
   } else {
     booksPerCategory = 5;
-  }
-
-  // Функція для обробки кліку по See more
-  function handleSeeMoreClick(categoryIndex) {
-    // Додатковий код для завантаження наступної порції книг для категорії з індексом categoryIndex
-    // Наприклад, можна використовувати змінну offset для відстеження, скільки книг вже виведено
-    // і передавати це значення в запиті для отримання наступної порції книг.
   }
 
   // Виведемо перші чотири категорії
@@ -131,7 +124,7 @@ function renderData(data, screenWidth) {
   }
 }
 
-// Функція для отримання ширини екрану
+//* Функція для отримання ширини екрану
 function getScreenWidth() {
   return window.innerWidth;
 }
@@ -139,7 +132,7 @@ function getScreenWidth() {
 let lastScreenWidth = 0;
 let resizeTimeout;
 
-// Функція для перевірки зміни ширини екрану і виклику відповідних дій зі затримкою
+//* Функція для перевірки зміни ширини екрану і виклику відповідних дій зі затримкою
 function handleScreenResize() {
   clearTimeout(resizeTimeout);
   resizeTimeout = setTimeout(() => {
@@ -160,7 +153,7 @@ function handleScreenResize() {
 // Додати обробник події при зміні розміру екрану
 window.addEventListener('resize', handleScreenResize);
 
-// Функція для відмальовки на початку завантаження сторінки
+//* Функція для відмальовки на початку завантаження сторінки
 function handleInitialResize() {
   const screenWidth = getScreenWidth();
   lastScreenWidth = screenWidth;
