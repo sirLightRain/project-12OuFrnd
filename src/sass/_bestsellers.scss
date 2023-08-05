@@ -1,5 +1,4 @@
 .best-sellers-books {
-  
 }
 
 // Контейнер для карток книг
@@ -7,27 +6,45 @@
   display: flex;
 }
 
-
 .category-container {
   position: relative; // Додали позицію relative, щоб можна було встановити абсолютну позицію для дочірнього елемента
 }
 
-// Стилі для кнопки "See more"
+//! ======================================== BUTTON ========================================
+// Стилі для кнопки "See more" до 768px
 .see-more-btn {
   position: absolute;
-  bottom: 0px; 
+  bottom: 0px;
   right: 0px;
+  opacity: 1;
+  transition: opacity 0.25s linear;
 }
 
-// Розміри обкладинок книг
-.img-size {
-  width: 335px;
-  height: 485px;
+// Клас, який застосовується до кнопки для миттєвого зникнення
+.resizing {
+  opacity: 0; /* Задаємо прозорість 0 для зникнення кнопки */
+}
+//! ======================================== BUTTON ========================================
+
+@media screen and (max-width: 374px) {
+  .img-size {
+    width: 100%;
+    height: auto;
+    object-fit: cover; //* Зображення заповнює контейнер
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  // Розміри обкладинок книг
+  .img-size {
+    width: 335px;
+    height: 485px;
+    object-fit: cover; //* Зображення заповнює контейнер
+  }
 }
 
 // Змінюємо розміри зображення при переході на більші екрани
 @media screen and (min-width: 768px) and (max-width: 1439px) {
-  
   .category-container {
     width: 704px;
     height: 474px;
@@ -40,7 +57,6 @@
 }
 
 @media screen and (min-width: 1440px) {
-
   .category-container {
     width: 996px;
     height: 426px;
