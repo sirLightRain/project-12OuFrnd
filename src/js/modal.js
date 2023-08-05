@@ -65,6 +65,8 @@ function handlerBook() {
     instance.show();
 
     currentLightboxInstance = instance;
+
+    document.body.classList.add('disable-scroll');
 }
 
 
@@ -73,6 +75,8 @@ function closeLightbox() {
         currentLightboxInstance.close();
         currentLightboxInstance = null; 
     }
+
+    document.body.classList.remove('disable-scroll')
 }
 
 document.addEventListener('click', function (event) {
