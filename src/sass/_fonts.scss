@@ -35,10 +35,14 @@
     font-style: normal;
 }
 
-.font-normal {
-    font-weight: 500;
-}
-
-.font-bold {
-    font-weight: 700;
+@font-face {
+    font-family: 'DM Sans';
+    src: url('../fonts/DMSans-Italic.eot');
+    src: local('DM Sans Italic'), local('DMSans-Italic'),
+        url('../fonts/DMSans-Italic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/DMSans-Italic.woff2') format('woff2'),
+        url('../fonts/DMSans-Italic.woff') format('woff'),
+        url('../fonts/DMSans-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
 }

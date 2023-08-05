@@ -1,13 +1,61 @@
 .best-sellers-books {
 }
 
+.js-product {
+  display: block;
+  outline: 2 px solid black;
+}
+
 // Контейнер для карток книг
 .books-list {
   display: flex;
+  justify-content: space-between;
 }
 
 .category-container {
   position: relative; // Додали позицію relative, щоб можна було встановити абсолютну позицію для дочірнього елемента
+
+  height: 625px;
+}
+
+// Відстань між категоріями
+.category-container + .category-container {
+  margin-top: 40px;
+}
+
+.category-style {
+  color: var(--category-author);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.28; /* 128.571% */
+  letter-spacing: 0.42px;
+  text-transform: uppercase;
+
+  margin-bottom: 18px;
+  cursor: pointer;
+}
+
+.book-name-style {
+  color: var(--black);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.12; /* 112.5% */
+  letter-spacing: -0.64px;
+  text-transform: uppercase;
+
+  margin-top: 14px;
+  max-width: 100%;
+}
+
+.author-style {
+  color: var(--category-author);
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.16; /* 116.667% */
+  letter-spacing: -0.48px;
 }
 
 //! ======================================== BUTTON ========================================
@@ -18,6 +66,7 @@
   right: 0px;
   opacity: 1;
   transition: opacity 0.25s linear;
+  margin-top: 8px;
 }
 
 // Клас, який застосовується до кнопки для миттєвого зникнення
@@ -25,6 +74,11 @@
   opacity: 0; /* Задаємо прозорість 0 для зникнення кнопки */
 }
 //! ======================================== BUTTON ========================================
+
+.img-size {
+  border-radius: 8px;
+  cursor: pointer;
+}
 
 @media screen and (max-width: 374px) {
   .img-size {
@@ -35,11 +89,32 @@
 }
 
 @media screen and (min-width: 375px) and (max-width: 767px) {
+  Відстань між картками
+  // li.js-product + li.js-product {
+  //   margin-left: 25px;
+  // }
+
+  .category-style {
+    line-height: 1.71; /* 128.571% */
+  }
+
   // Розміри обкладинок книг
   .img-size {
     width: 335px;
     height: 485px;
     object-fit: cover; //* Зображення заповнює контейнер
+  }
+
+  // .img-size + .img-size {
+  //   margin-left: 25px;;
+  // }
+
+  .book-name-style {
+    width: 335px;
+  }
+
+  .author-style {
+    width: 335px;
   }
 }
 
@@ -54,6 +129,14 @@
     width: 218px;
     height: 316px;
   }
+
+  .book-name-style {
+    width: 218px;
+  }
+
+  .author-style {
+    width: 218px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -65,5 +148,13 @@
   .img-size {
     width: 180px;
     height: 256px;
+  }
+
+  .book-name-style {
+    width: 180px;
+  }
+
+  .author-style {
+    width: 180px;
   }
 }
