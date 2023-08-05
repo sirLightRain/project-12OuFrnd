@@ -1,0 +1,103 @@
+    .header {
+        padding: 18px 20px;
+        display: flex;
+        border: 1.5px solid #111;
+        border-radius: 0px 0px 8px 8px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .user {
+        display: none;
+    }
+    .nav-logo {
+        display: flex;
+        align-items: center;
+    }
+    
+    .logo-svg {
+           margin-right: 8px;
+    }
+    .header-list {
+        display: none;
+    }
+    .mobile-menu-open {
+        margin-left: 14px;
+    }
+    
+@media screen and (min-width: 767px) {
+    .mobile-menu-open {
+        display: none;
+    }
+    .user {
+        margin-left: 24px;
+        display: flex;
+        padding: 0px 12px;
+        align-items: center;
+        width: 184px;
+        height: 45px;
+        border-radius: 36px;
+        background: var(--violet);
+    }
+    .user-photo {
+        margin-right: 9px;
+    }
+    .name-user {
+        margin-right: 4px;
+        color: #FFF;
+        font-family: DM Sans;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: -0.44px;
+    }
+    .authorization {
+        display: flex;
+        align-items: center;
+    }
+    .header {
+        padding: 22px 32px;
+    }
+    .header-list {
+        display: flex;
+        align-items: center;
+        color: #111;
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 1.28;
+        letter-spacing: -0.56px;
+        text-transform: uppercase;
+    }
+    .header-list>.header-item:not(:last-child) {
+        margin-right: 16px;
+    }
+    .logo-text {
+        margin-right: 40px;
+    }
+    .current-shopping {
+        display: flex;
+    }
+    .shopping-span {
+        margin-right: 8px;
+    }
+    .header-item>.current-home {
+        padding: 8px 16px;
+        border-radius: 36px;
+        background: var(--yellow);
+        font-weight: 700;
+    }
+    .header-item>.current-shopping {
+        padding: 7px 16px;
+        border-radius: 36px;
+        background: var(--yellow);
+    }
+}
+@media screen and (min-width: 1440px) {
+    .header-list>.header-item:not(:last-child) {
+            margin-right: 24px;
+        }
+    .logo-text {
+        margin-right: 76px;
+    }
+}
