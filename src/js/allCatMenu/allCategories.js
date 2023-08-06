@@ -61,13 +61,13 @@ async function selectedCategory(event) {
     });
     const responceResult = await responce.json();
 
-    // console.log('selected Category: ', responceResult);
+    console.log('selected Category: ', responceResult);
   }
 }
 
-if (listOfAllCategories) {
-  loadAllCategories();
-  loadTopBooks();
-}
+// if (listOfAllCategories) {
+//   loadAllCategories();
+//   loadTopBooks();
+// }
 
-// export { loadAllCategories, loadTopBooks };
+export { loadAllCategories, loadTopBooks };
