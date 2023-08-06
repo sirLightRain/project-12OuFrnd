@@ -1,4 +1,4 @@
-// Обробка кліку на сторінку - active стан:
+// active стан кнопки - обробка кліку на сторінку:
 
 const pages = document.querySelectorAll('.pgs-number-list.pgs-list .page-number');
 pages.forEach((page) => {
@@ -31,13 +31,61 @@ function handlePageClick(event) {
 }
 
 // =================================================
-// відображення нумерації інших прихованих сторінок при пагінації :
+// навігація по кнопках пагінації 
 
+const cards = document.querySelectorAll('.card');
+const pageSize = 3;
+let currentPage = 1;
 
+function showPage(page) {
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
 
+    cards.forEach((card, index) => {
+        if (index >= startIndex && index < endIndex) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
 
+showPage(currentPage);
 
+const prevFirstPageLink = document.querySelector('.pgs-previous-list .page-item:first-child');
+const prevPageLink = document.querySelector('.pgs-previous-list .page-item:last-child');
+const nextPageLink = document.querySelector('.pgs-next-list .page-item:first-child');
+const lastPageLink = document.querySelector('.pgs-next-list .page-item:last-child');
 
+prevFirstPageLink.addEventListener('click', () => {
+    currentPage = 1;
+    showPage(currentPage);
+});
 
+prevPageLink.addEventListener('click', () => {
+    if (currentPage > 1) {
+        currentPage--;
+        showPage(currentPage);
+    }
+});
 
+nextPageLink.addEventListener('click', () => {
+    if (currentPage < Math.ceil(cards.length / pageSize)) {
+        currentPage++;
+        showPage(currentPage);
+    }
+});
 
+lastPageLink.addEventListener('click', () => {
+    currentPage = Math.ceil(cards.length / pageSize);
+    showPage(currentPage);
+});
+
+const pageLinks = document.querySelectorAll('.pgs-number-list .page-item');
+
+pageLinks.forEach((pageLink, index) => {
+    pageLink.addEventListener('click', () => {
+        currentPage = index + 1;
+        showPage(currentPage);
+    });
+});
