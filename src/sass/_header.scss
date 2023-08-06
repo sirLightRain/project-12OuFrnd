@@ -1,3 +1,4 @@
+
     .header {
         padding: 18px 20px;
         display: flex;
@@ -23,7 +24,59 @@
     .mobile-menu-open {
         margin-left: 14px;
     }
-    
+    .mobile-menu__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 64px;
+        padding: 20px;
+        border-radius: 0px 0px 8px 8px;
+        border: 1.5px solid #111;
+        background: #FFF;
+    }
+    .mobile-logo {
+        display: flex;
+        align-items: center;
+    }
+    .mobile-menu {
+        min-height: 812px;
+        background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 18.03%, #FFF 100%);
+    }
+    .burger-user {
+        display: flex;
+        align-items: center;
+        padding: 20px 0px 0px 20px;
+    }
+    .user-photo {
+        margin-right: 9px;
+    }
+    .name-user {
+        color: #FFF;
+        font-family: DM Sans;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: -0.44px;
+    }
+    .mobile-menu__close-btn {
+        margin-left: 14px;
+    }
+    .burger-header-list {
+        color: #FFF;
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 18px;
+        letter-spacing: -0.56px;
+        text-transform: uppercase;
+        color: #FFF;
+        margin-top: 126px;
+        text-align: center;
+    }
+    .burger-header-list>.header-item:not(:last-child) {
+        margin-bottom: 25px;
+    }
 @media screen and (min-width: 767px) {
     .mobile-menu-open {
         display: none;
@@ -96,7 +149,7 @@
 @media screen and (min-width: 1440px) {
     .header-list>.header-item:not(:last-child) {
             margin-right: 24px;
-        }
+    }
     .logo-text {
         margin-right: 76px;
     }
