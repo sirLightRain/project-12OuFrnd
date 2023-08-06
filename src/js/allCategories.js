@@ -7,7 +7,7 @@ async function loadAllCategories() {
     method: 'GET',
   });
   const responceResult = await responce.json();
-  console.log('Category:', responceResult);
+  //   console.log('Category:', responceResult);
   if (responceResult) {
     displayCategoryList(responceResult);
   } else {
@@ -38,7 +38,6 @@ function displayCategoryList(data) {
     .addEventListener('click', loadTopBooks);
 }
 
-
 // load Top Books
 async function loadTopBooks() {
   const serverTopBooks = 'https://books-backend.p.goit.global/books/top-books';
@@ -46,14 +45,12 @@ async function loadTopBooks() {
     method: 'GET',
   });
   const responceResult = await responce.json();
-  console.log('Top books: ', responceResult);
-    if (responceResult) {
-      //   call a function
-    } else {
+  //   console.log('Top books: ', responceResult);
+  if (responceResult) {
+  } else {
     allCategories.innerHTML = responceResult.message;
   }
 }
-
 
 // selected Category
 async function selectedCategory(event) {
@@ -62,12 +59,11 @@ async function selectedCategory(event) {
     const responce = await fetch(serverCategory, {
       method: 'GET',
     });
-      const responceResult = await responce.json();
-    //   call a function
-    console.log('selected Category: ', responceResult);
+    const responceResult = await responce.json();
+
+    // console.log('selected Category: ', responceResult);
   }
 }
-
 
 if (listOfAllCategories) {
   loadAllCategories();
