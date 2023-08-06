@@ -1,7 +1,13 @@
 import * as basicLightbox from 'basiclightbox'
 
+let bookDataCache = null;
 
 function serviceBook() {
+
+    if (bookDataCache) {
+    return Promise.resolve(bookDataCache);
+  }
+
     const BASE = 'https://books-backend.p.goit.global';
     const END = '/books/top-books';
 
@@ -11,7 +17,12 @@ function serviceBook() {
             throw new Error(resp.statusText)
             }
             return resp.json()
-    })
+        })
+    
+    .then((data) => {
+      bookDataCache = data;
+      return data;
+    });
 }
 
 
