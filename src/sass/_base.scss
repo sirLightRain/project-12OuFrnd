@@ -69,11 +69,14 @@ body {
 }
 /* --- Mobile container ---- */
 @media screen and (min-width: 375px) {
+
+
+
   .container {
-    //!!!!!!!!!!!!!!!!!!!!!!
-    display: flex;
-    justify-content: flex-end; 
-    //!!!!!!!!!!!!!!!!!!!!!! 
+    // //!!!!!!!!!!!!!!!!!!!!!!
+    // display: flex;
+    // justify-content: flex-end; 
+    // //!!!!!!!!!!!!!!!!!!!!!! 
     width: 375px;
     padding-left: 20px;
     padding-right: 20px;
@@ -85,6 +88,9 @@ body {
 }
 /* --- Planshet container ---- */
 @media screen and (min-width: 768px) {
+
+  
+
   .container {
     width: 768px;
     padding-left: 32px;
@@ -95,6 +101,14 @@ body {
 }
 /* --- Desctop container ---- */
 @media screen and (min-width: 1440px) {
+
+  .cover {
+    //!!!!!!!!!!!!!!!!!!!!!!
+    display: flex;
+    justify-content: space-between; 
+    //!!!!!!!!!!!!!!!!!!!!!! 
+  }
+
   .container {
     width: 1440px;
     padding-left: 24px;

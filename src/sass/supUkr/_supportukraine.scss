@@ -1,8 +1,12 @@
+.cover-spU-menu {
+  margin-bottom: 40px;
+}
+
 .support {
   z-index: 0;
   padding: 24px 40px;
   list-style-type: none;
-  width: 356px;
+  width: 335px;
   max-width: 100%;
   border-radius: 16px;
   background: radial-gradient(
@@ -90,4 +94,12 @@
   height: 32px;
   display: flex;
   align-items: center;
+}
+
+@media screen and (min-width: 1440px) {
+  .support {
+
+    width: 356px;
+    
+  }
 }
