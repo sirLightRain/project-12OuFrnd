@@ -1,3 +1,3 @@
-import { test } from "./js/bestSellers";
+import { makeCard } from './js/shoppingList';
 
-test();
+makeCard();
