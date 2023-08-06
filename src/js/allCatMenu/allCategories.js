@@ -69,3 +69,5 @@ if (listOfAllCategories) {
   loadAllCategories();
   loadTopBooks();
 }
+
+// export { loadAllCategories, loadTopBooks };
