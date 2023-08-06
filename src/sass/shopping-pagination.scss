@@ -1,7 +1,7 @@
 .shopping-pagination {
     display: flex;
     gap: 24px;
-    max-width: 446;
+    max-width: 446px; 
     margin: 40px auto;
 }
 
@@ -12,16 +12,11 @@
     gap: 10px;
 }
 
-// .pgs-previous-list {}
-
-// .pgs-number-list {}
-
-// .pgs-next-list {}
-
 .page-item {
     width: 44px;
     height: 44px;
 }
+
 .page-number {
     width: 100%;
     height: 100%;
@@ -36,14 +31,7 @@
     fill: #111;
 }
 
-.ellipse-icon-active {
-    width: 44px;
-    height: 44px;
-    flex-shrink: 0;
-    fill: #111;
-    stroke-width: 1px;
-    stroke: #111;
-}
+
 .ellipse-icon-light {
     width: 44px;
     height: 44px;
@@ -122,15 +110,24 @@
     left: 14px;
 }
 
-.number-dec {
-    color: #111;
+.icon-active {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    fill: #111;
+    stroke-width: 1px;
+    stroke: #111;
+    
+}
+
+.number-desc {
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
-    line-height: 1.2; 
+    line-height: 1.2;
     text-align: center;
     text-decoration: none;
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -140,17 +137,23 @@
     transform: translate(-50%, -50%);
 }
 
-  .page-item:is(:hover, :focus) {
-    animation: animatePg 1500ms ease-in-out 500ms;
-  }
+.number-color {
+    color: #111;
+}
 
-  @keyframes animatePg {
+.number-color-active {
+    color: #FFFFFF;
+}
+
+.page-item:is(:hover, :focus) {
+    animation: animatePg 1500ms ease-in-out 500ms;
+}
+
+@keyframes animatePg {
     0% {
         opacity: 0.7;
     }
     100% {
         opacity: 1;
     }
-  }
-
-
+}
