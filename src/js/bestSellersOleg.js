@@ -44,4 +44,4 @@ function handlerAdd(evt) {
   localStorage.setItem(PRODUCT_LS_KEY, JSON.stringify(products));
 }
 
-export { createMarkup };
+
