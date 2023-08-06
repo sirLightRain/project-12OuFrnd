@@ -1,12 +1,13 @@
-import * as basicLightbox from 'basiclightbox'
+import * as basicLightbox from 'basiclightbox';
+import amazon from '../images/amazon.jpg';
 
-let bookDataCache = null;
+//let bookDataCache = null;
 
 function serviceBook() {
 
-    if (bookDataCache) {
-    return Promise.resolve(bookDataCache);
-  }
+//     if (bookDataCache) {
+//     return Promise.resolve(bookDataCache);
+//   }
 
     const BASE = 'https://books-backend.p.goit.global';
     const END = '/books/top-books';
@@ -16,28 +17,28 @@ function serviceBook() {
             if (!resp.ok) {
             throw new Error(resp.statusText)
             }
-            return resp.json()
+            return resp.json();
         })
     
-    .then((data) => {
-      bookDataCache = data;
-      return data;
+        .then((data) => {
+        
+        localStorage.setItem('list', JSON.stringify(data));
     });
 }
 
+serviceBook();
 
 const bookList = document.querySelector(".books-list");
 
-serviceBook()
-    .then(data => {
-        // bookList.insertAdjacentHTML('beforeend', createMarkUp(data))
-        console.log(data)
-        data.forEach(element => {
-            bookList.insertAdjacentHTML('beforeend', createMarkUp(element.books))
-        });
-    })
-.catch(err => console.log(err))
+function createBookList() {
+    const listData = JSON.parse(localStorage.getItem('list'));
+    console.log(typeof listData);
+    listData.forEach(obj => {
+        bookList.insertAdjacentHTML('beforeend', createMarkUp(obj.books))
+    });
+}
 
+createBookList();
 
 function createMarkUp(arr) {
     return arr.map(({ _id , book_image, list_name, author, title}) => `
@@ -59,59 +60,65 @@ function createBookMarkUp({ _id , book_image, list_name, author, title} = {}) {
             <p class="author">${author}</p>
             <p class="text">Info Info Info Info Info Info Info Info Info Info Info Info</p>
              <ul class="shop-list">
-      <li><a href="#"><img src="./images/amazon.jpg" width="62" height="19" alt="amazon"/></a></li>
-      <li><a href="#"><img src="./images/orange-book.png" width="62" height="19" alt="orange-book"/></a></li>
-      <li><a href="#"><img src="./images/books.png" width="62" height="19" alt="books"/></a></li>
+      <li><a href="#"><img src="${ amazon }" width="62" height="19" alt="amazon"/></a></li>
+      <li><a href="#"><img src="../images/orange-book.png" width="62" height="19" alt="orange-book"/></a></li>
+      <li><a href="#"><img src="../images/books.png" width="62" height="19" alt="books"/></a></li>
     </ul>
      </div>
             <button class="add-to-cart-btn">ADD TO SHOPPING LIST</button>
     </div>`
 }
 
-bookList.addEventListener('click', handlerBook)
+bookList.addEventListener('click', handlerBook);
+
 
 let currentLightboxInstance = null;
 
-
-async function handlerBook(evt) {
+function handlerBook(evt) {
   const bookItem = evt.target.closest('.js-product');
   const bookId = bookItem.dataset.id;
 
-  try {
-    const obj = await findBookItem(bookId);
+  
+    const obj = findBookItem(bookId);
     console.log(obj);
 
-    closeLightbox();
+    // closeLightbox();
 
     const instance = basicLightbox.create(createBookMarkUp(obj));
     instance.show();
 
-    currentLightboxInstance = instance;
+      currentLightboxInstance = instance;
+      
+    //updateButtonsInShoppingList();
+    //   document.addEventListener('click', handlerOutsideModal)
+
+    const btnClose = document.querySelector('.modal-close');
+    btnClose.addEventListener('click', closeLightbox);
+    const modalContainer = document.querySelector(".basicLightbox");
+    modalContainer.addEventListener('click', () => {
+        document.body.classList.remove('disable-scroll');
+    })
 
     document.body.classList.add('disable-scroll');
-  } catch (err) {
-    console.log(err);
-  }
 }
 
 
 function findBookItem(item) {
-  return serviceBook().then(data => {
+    const data = JSON.parse(localStorage.getItem('list'));
+ 
     let currentBook;
     for (const el of data) {
       currentBook = el.books.find(({ _id }) => _id === item);
       if (currentBook) break;
     }
     return currentBook || {}; 
-  }).catch(err => {
-    console.log(err);
-    return {}; 
-  });
 }
 
 
 function closeLightbox() {
+    console.log(currentLightboxInstance)
     if (currentLightboxInstance) {
+
         currentLightboxInstance.close();
         currentLightboxInstance = null; 
     }
@@ -119,12 +126,21 @@ function closeLightbox() {
     document.body.classList.remove('disable-scroll')
 }
 
-document.addEventListener('click', function (event) {
-    const target = event.target;
-    if (target.classList.contains('modal-close')) {
-        closeLightbox();
-    }
-});
+
+
+// // function handleOutsideModalClick(event) {
+// //   const modalContent = document.querySelector('.modal .content');
+// //   if (!modalContent.contains(event.target)) {
+// //     closeLightbox();
+// //   }
+// // }
+
+// document.addEventListener('click', function (event) {
+//     const target = event.target;
+//     if (target.classList.contains('modal-close')) {
+//         closeLightbox();
+//     } 
+// });
 
 document.addEventListener('keydown', function (event) {
     const keyCode = event.keyCode || event.which;
@@ -135,4 +151,49 @@ document.addEventListener('keydown', function (event) {
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
+// bookList.addEventListener('click', function (evt) {
+//     if (evt.target.classList.contains('add-to-cart-btn')) {
+//         hendlerClickAdd(evt);
+//     }
+// });
 
+// function hendlerClickAdd(evt) {
+//     const button = evt.target;
+//     const bookId = button.closest('.modal').dataset.id;
+
+//     const storedBooks = JSON.parse(localStorage.getItem('shoppingList') || '[]');
+
+//     const isBookInShoppingList = storedBooks.some((book) => book._id === bookId);
+
+//     if (isBookInShoppingList) {
+//         // Якщо книга вже в shopping list, то видаляємо її
+//         const updatedBooks = storedBooks.filter((book) => book._id !== bookId);
+//         localStorage.setItem('shoppingList', JSON.stringify(updatedBooks));
+//         button.textContent = 'ADD TO SHOPPING LIST';
+//     } else {
+//         // Якщо книни немає в shopping list, то додаємо її
+//         const book = currentLightboxInstance.element().querySelector('.content h3.title').textContent;
+//         const author = currentLightboxInstance.element().querySelector('.content p.author').textContent;
+//         storedBooks.push({ _id: bookId, title: book, author: author });
+//         localStorage.setItem('shoppingList', JSON.stringify(storedBooks));
+//         button.textContent = 'REMOVE FROM SHOPPING LIST';
+//     }
+// }
+// function updateButtonsInShoppingList() {
+//     const storedBooks = JSON.parse(localStorage.getItem('shoppingList') || '[]');
+
+//     const buttons = document.querySelectorAll('.add-to-cart-btn');
+//     buttons.forEach((button) => {
+//         const bookId = button.closest('.modal').dataset.id;
+//         const isBookInShoppingList = storedBooks.some((book) => book._id === bookId);
+
+//         if (isBookInShoppingList) {
+//             button.textContent = 'REMOVE FROM SHOPPING LIST';
+//         } else {
+//             button.textContent = 'ADD TO SHOPPING LIST';
+//         }
+//     });
+// }
+
+// // Визиваємо updateButtonsInShoppingList, коли сторінка завантажується
+// updateButtonsInShoppingList();
