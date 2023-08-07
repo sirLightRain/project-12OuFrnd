@@ -4,7 +4,6 @@ import orangeBook from '../images/orangeBook.png';
 import booksImg from '../images/booksImg.png';
 import close from '../images/close.png';
 
-
 function serviceBook() {
 
     const BASE = 'https://books-backend.p.goit.global';
@@ -30,7 +29,7 @@ const bookList = document.querySelector(".books-list");
 
 function createBookList() {
     const listData = JSON.parse(localStorage.getItem('list'));
-    console.log(typeof listData);
+    //console.log(typeof listData);
     listData.forEach(obj => {
         bookList.insertAdjacentHTML('beforeend', createMarkUp(obj.books))
     });
@@ -48,7 +47,7 @@ function createMarkUp(arr) {
     `).join('');
 }
 
-function createBookMarkUp({ _id, book_image, list_name, author, title, description } = {}) {
+function createBookMarkUp({ _id, book_image, list_name, author, title, description } = {}, url) {
     const books = JSON.parse(localStorage.getItem('add')) || [];
     const isInList = books.some(value => value == _id);
     return `<div class="modal" data-id="${_id}">
@@ -60,9 +59,9 @@ function createBookMarkUp({ _id, book_image, list_name, author, title, descripti
                     <p class="author">${author}</p>
                     <p class="text">${description}</p>
                     <ul class="shop-list">
-                        <li><a href="#" class="shop-link"><img src="${ amazon }" width="62" height="19" alt="amazon" class="shop-img"/></a></li>
-                        <li><a href="#" class="shop-link"><img src="${orangeBook}" width="33" height="32" alt="orange-book" class="shop-img"/></a></li>
-                        <li><a href="#" class="shop-link"><img src="${booksImg}" width="38" height="36" alt="books" class="shop-img"/></a></li>
+                        <li><a href="${url[0]}" target="_blank" class="shop-link"><img src="${ amazon }" width="62" height="19" alt="amazon" class="shop-img"/></a></li>
+                        <li><a href="${url[1]}" target="_blank" class="shop-link"><img src="${orangeBook}" width="33" height="32" alt="orange-book" class="shop-img"/></a></li>
+                        <li><a href="${url[4]}" target="_blank" class="shop-link"><img src="${booksImg}" width="38" height="36" alt="books" class="shop-img"/></a></li>
                     </ul>
                 </div>
                 <button class="add-to-cart-btn">${isInList ? 'REMOVE FROM THE SHOPPING LIST' : 'ADD TO SHOPPING LIST'}</button>
@@ -79,9 +78,13 @@ function handlerBook(evt) {
     const bookId = bookItem.dataset.id;
 
     const obj = findBookItem(bookId);
-    console.log(obj);
+    //console.log(obj);
+    //console.log(obj.buy_links)
+    let url =[];
+    obj.buy_links.map(value => url.push(value.url));
+    //console.log(url);
 
-    const instance = basicLightbox.create(createBookMarkUp(obj));
+    const instance = basicLightbox.create(createBookMarkUp(obj, url));
     instance.show();
 
     currentLightboxInstance = instance;
@@ -94,9 +97,6 @@ function handlerBook(evt) {
     })
 
     const btnAdd = document.querySelector('.add-to-cart-btn');
-    // btnAdd.addEventListener('click', (idBook) => {
-    //     localStorage.setItem('add', JSON.stringify(bookId))
-    // })
 
     btnAdd.addEventListener('click', handlerClickAdd);
     function handlerClickAdd(idBooks) {
@@ -113,9 +113,6 @@ function handlerBook(evt) {
             books.push(bookId);
             localStorage.setItem('add', JSON.stringify(books));
         }
-        // books.push(bookId);
-        // localStorage.setItem('add', JSON.stringify(books));
-
     }
 
     document.body.classList.add('disable-scroll');
@@ -137,7 +134,7 @@ function closeLightbox() {
     console.log(currentLightboxInstance)
     if (currentLightboxInstance) {
         currentLightboxInstance.close();
-        currentLightboxInstance = null; 
+        currentLightboxInstance = null;
     }
 
     document.body.classList.remove('disable-scroll')
