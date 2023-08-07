@@ -1,17 +1,5 @@
 import Notiflix from 'notiflix';
-<<<<<<< Updated upstream
-import { selectedCategory } from 'allCategories.js';
 
-// додаємо слухача на вибрану категорію з allCategories
-const pickedCategory = document.querySelector('.categor_link');
-
-// отримуємо масив книг певної категорії
-function getCategoryArray() {
-  pickedCategory.addEventListener('click', selectedCategory());
-}
-=======
-
->>>>>>> Stashed changes
 // -------------------     3апускаємо спіннер
 const loadingMessage = document.querySelector('.loader');
 
@@ -57,56 +45,36 @@ export function reachedLastPage() {
   });
 }
 
-<<<<<<< Updated upstream
-// рендеримо одну картку книги
-export function renderingBookCard(arr) {
-  const markUpTest = arr
-    .map(({ server, responceResult }) => {
-      const { list_name, book_image, title, author } = category[0];
-      const markUp = `
-        <div class="book-card">
-      <h2 class="categ-header"></h2>    
-    <img class="img-book" src="${book_image}" width="335" height="485" loading="lazy">
-    	<div class="info">
-        <p class="book-title">${title}</p>
-        <p class="book-author">${author}</p>
-      	</div>
-        </div>
-  `;
-      return markUp;
-    })
-    .join('');
-=======
 // рендеримо одну картку книги &  створюємо список карток з книгами
 export function renderingBookCard(data) {
     const ulSelectedBook = document.querySelector('.selected-books-js')
-    const selectedCategory = document.querySelector('.selected-category')
     const headerCategory = document.querySelector('.header-category')
-    const lastWord = document.querySelector('.span-header')
+    const lastWord = document.querySelector('.header-last-word')
  let selectedBookCard = ``
  let categoryName = `${data[0].list_name}`;
  const words = categoryName.split(" ");
-headerCategory.textContent = `${words.slice(0, words.length -1).join(" ")}`
-lastWord.textContent = ` ${words[words.length-1]}`
+headerCategory.textContent = `${words.slice(0, words.length -1).join(" ")} `
+lastWord.textContent = `${words[words.length-1]}`
 
  console.log(data)
- data.forEach( ({list_name, book_image,title,author}) => {
+ data.forEach( ({book_image,title,author}) => {
     selectedBookCard +=`
     <div class="book-div">
     <img src="${book_image}" alt="${title}" class="book-img"/>
     <p class="book-title">${title}</p>
-    <p class="book-author">B${author}</p>
+    <p class="book-author">${author}</p>
   </div>
   `;
     })
 ulSelectedBook.innerHTML = selectedBookCard
 }
+
 export function renderingBookCardAll(data) {
     const ulSelectedBook = document.querySelector('.selected-books-js')
     const headerCategory = document.querySelector('.header-category')
-    const lastWord = document.querySelector('.span-header')
-headerCategory.textContent = `ALL`
-lastWord.textContent = ` CATEGORIES`
+    const lastWord = document.querySelector('.header-last-word')
+headerCategory.textContent = `All `
+lastWord.textContent = ` Categories`
  let selectedBookCard = ``
  console.log(data)
  data.forEach(({books}) => {
@@ -115,44 +83,20 @@ lastWord.textContent = ` CATEGORIES`
     <div class="book-div">
     <img src="${book_image}" alt="${title}" class="book-img"/>
     <p class="book-title">${title}</p>
-    <p class="book-author">B${author}</p>
+    <p class="book-author">${author}</p>
   </div>
   `;
     }
  )})
 ulSelectedBook.innerHTML = selectedBookCard
 
->>>>>>> Stashed changes
 }
 
 // додаємо модалку на картку книги
-
-<<<<<<< Updated upstream
-// створюємо список карток з книгами
-
-=======
-
-
-
-
-  
->>>>>>> Stashed changes
 // кнопка See More
 let seeMoreBtn = document.querySelector('.see-more');
 
 // пагінація
 
-// ресет списку при виборі іншої категорії
-<<<<<<< Updated upstream
-=======
-
-// import {renderingBookCard} from "./selected-category";
-// import { renderingBookCardAll} from "./selected-category";
-// renderingBookCard(responceResult)
 
 
-
-
-
-
->>>>>>> Stashed changes
