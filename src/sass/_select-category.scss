@@ -1,7 +1,5 @@
 img {
   width: 100%;
-<<<<<<< Updated upstream
-=======
   height: 485px;
 }
 @media screen and (min-width: 768px) {
@@ -15,7 +13,6 @@ img {
     width: 100%;
     height: 256px;
   }
->>>>>>> Stashed changes
 }
 .book-img {
   margin-bottom: 14px;
@@ -49,35 +46,22 @@ img {
     width: 180px;
   }
 }
-<<<<<<< Updated upstream
-.selected-books-div {
-=======
 .selected-books-ul {
->>>>>>> Stashed changes
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  margin: 0 auto;
   justify-content: center;
   width: 335px;
 }
 @media screen and (min-width: 768px) {
-<<<<<<< Updated upstream
-  .selected-books-div {
-=======
   .selected-books-ul {
->>>>>>> Stashed changes
     gap: 40px 25px;
     width: 704px;
   }
 }
 
 @media screen and (min-width: 1440px) {
-<<<<<<< Updated upstream
-  .selected-books-div {
-=======
   .selected-books-ul {
->>>>>>> Stashed changes
     gap: 40px 24px;
     width: 998px;
   }
@@ -142,27 +126,50 @@ img {
     transform: rotateY(-180deg);
   }
 }
-<<<<<<< Updated upstream
-=======
-.header{
+.header {
   margin-top: 40px;
-  margin-left: 40px;
   margin-bottom: 40px;
 }
+
+
+
+.header-sc{
+  font-size: 32px;
+font-style: normal;
+font-weight: 700;
+line-height: 38px;
+letter-spacing: -1.28px;
+}
+@media screen and (min-width: 768px) {
+.header-sc{
+font-size: 48px;
+line-height: 52px;
+letter-spacing: -1.92px;
+}}
+
 .header-category {
   color: var(--black);
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 52px; /* 108.333% */
-  letter-spacing: -1.92px;
+  
 }
-.span-header {
+.header-last-word {
   color: var(--violet);
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 52px; /* 108.333% */
-  letter-spacing: -1.92px;
 }
->>>>>>> Stashed changes
+
+.selected-category {
+  width: 375px;
+  padding: 40px 0 80px 20px;
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .selected-category {
+    width: 768px;
+    padding: 40px 0 100px 32px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .selected-category {
+    width: 1440px;
+    padding: 40px 0 100px 40px;
+    margin: 0;
+  }
+}
