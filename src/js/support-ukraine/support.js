@@ -1,11 +1,12 @@
 import charities from './charities';
 import Swiper from 'swiper';
+import 'swiper/swiper.scss';
 import { Navigation } from 'swiper';
-import 'swiper/swiper.min.css';
 
-const list = document.querySelector('.support-list');
+const swiperEl = document.querySelector('.support-list');
 
 const html = charities.map(makeMarkup).join('');
+const swipeDownBtn = document.querySelector('.next swiper-next');
 
 function makeMarkup({ url, title, img }, index) {
   const digits = (index + 1).toString().padStart(2, '0');
@@ -28,7 +29,7 @@ const str = charities.map((element, index) => {
   return '<li class="support-item"> посилання на фонд <a class="support-link" href=""></a></li>';
 });
 
-const swiper = new Swiper('.swiper', {
+const swiper = new Swiper(swiperEl, {
   direction: 'vertical',
   slidesPerView: 4,
   rewind: true,
