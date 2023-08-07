@@ -29,19 +29,26 @@ const str = charities.map((element, index) => {
   return '<li class="support-item"> посилання на фонд <a class="support-link" href=""></a></li>';
 });
 
-const swiper = new Swiper('.swiper', {
+const swipeDownBtn = document.querySelector('.swiper-next');
+swipeDownBtn.addEventListener('click', onNext);
+
+function onNext() {
+  swiper.slideNext(250);
+}
+
+const swiper = new Swiper(swiperEl, {
   direction: 'vertical',
-  slidesPerView: 4,
   rewind: true,
-  spaceBetween: 20,
-  effect: 'slide',
-  breakpoints: {
-    480: {
-      slidesPerView: 6,
-    },
-  },
-  modules: [Navigation],
+  loopSlides: 9,
   navigation: {
-    nextEl: '.swiper-next',
+    nextEl: swipeDownBtn,
+  },
+  slidesPerView: 4,
+  spaceBetween: 20,
+  breakpoints: {
+    768: {
+      slidesPerView: 6,
+      spaceBetween: 20,
+    },
   },
 });
