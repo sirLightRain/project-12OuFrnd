@@ -47,49 +47,58 @@ export function reachedLastPage() {
 
 // рендеримо одну картку книги &  створюємо список карток з книгами
 export function renderingBookCard(data) {
-    const ulSelectedBook = document.querySelector('.selected-books-js')
-    const headerCategory = document.querySelector('.header-category')
-    const lastWord = document.querySelector('.header-last-word')
- let selectedBookCard = ``
- let categoryName = `${data[0].list_name}`;
- const words = categoryName.split(" ");
-headerCategory.textContent = `${words.slice(0, words.length -1).join(" ")} `
-lastWord.textContent = `${words[words.length-1]}`
+  const ulSelectedBook = document.querySelector('.selected-books-js');
+  const headerCategory = document.querySelector('.header-category');
+  const lastWord = document.querySelector('.header-last-word');
+  let selectedBookCard = ``;
+  let categoryName = `${data[0].list_name}`;
+  const words = categoryName.split(' ');
+  headerCategory.textContent = `${words.slice(0, words.length - 1).join(' ')} `;
+  lastWord.textContent = `${words[words.length - 1]}`;
 
- console.log(data)
- data.forEach( ({book_image,title,author}) => {
-    selectedBookCard +=`
+  console.log(data);
+  data.forEach(({ book_image, title, author }) => {
+    selectedBookCard += `
+    <li class ="book-li">
     <div class="book-div">
     <img src="${book_image}" alt="${title}" class="book-img"/>
+    <button class="card-animation">
+    QUICK VIEW
+    </button>
+    </div>
     <p class="book-title">${title}</p>
     <p class="book-author">${author}</p>
-  </div>
+  </li>
   `;
-    })
-ulSelectedBook.innerHTML = selectedBookCard
+  });
+  ulSelectedBook.innerHTML = selectedBookCard;
 }
 
 export function renderingBookCardAll(data) {
-    const ulSelectedBook = document.querySelector('.selected-books-js')
-    const headerCategory = document.querySelector('.header-category')
-    const lastWord = document.querySelector('.header-last-word')
-headerCategory.textContent = `All `
-lastWord.textContent = ` Categories`
- let selectedBookCard = ``
- console.log(data)
- data.forEach(({books}) => {
-    books.forEach(({book_image,title,author}) => {
- selectedBookCard +=`
+  const ulSelectedBook = document.querySelector('.selected-books-js');
+  const headerCategory = document.querySelector('.header-category');
+  const lastWord = document.querySelector('.header-last-word');
+  headerCategory.textContent = `All `;
+  lastWord.textContent = ` Categories`;
+  let selectedBookCard = ``;
+  console.log(data);
+  data.forEach(({ books }) => {
+    books.forEach(({ book_image, title, author }) => {
+      selectedBookCard += `
+      <li class ="book-li">
     <div class="book-div">
     <img src="${book_image}" alt="${title}" class="book-img"/>
+    <button class="card-animation">
+    QUICK VIEW
+    </button>
+    </div>
     <p class="book-title">${title}</p>
     <p class="book-author">${author}</p>
-  </div>
+  </li>
   `;
-    }
- )})
-ulSelectedBook.innerHTML = selectedBookCard
-
+    });
+  });
+  ulSelectedBook.innerHTML = selectedBookCard;
 }
 
 // додаємо модалку на картку книги
@@ -97,6 +106,3 @@ ulSelectedBook.innerHTML = selectedBookCard
 let seeMoreBtn = document.querySelector('.see-more');
 
 // пагінація
-
-
-
