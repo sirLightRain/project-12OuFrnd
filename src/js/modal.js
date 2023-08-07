@@ -1,13 +1,8 @@
 import * as basicLightbox from 'basiclightbox';
 import amazon from '../images/amazon.jpg';
 
-//let bookDataCache = null;
 
 function serviceBook() {
-
-//     if (bookDataCache) {
-//     return Promise.resolve(bookDataCache);
-//   }
 
     const BASE = 'https://books-backend.p.goit.global';
     const END = '/books/top-books';
@@ -42,55 +37,49 @@ createBookList();
 
 function createMarkUp(arr) {
     return arr.map(({ _id , book_image, list_name, author, title}) => `
-     <li data-id="${_id}" class="js-product">
-      <img src="${book_image}" alt="${list_name}" class="img-size" loading="lazy"/>
+        <li data-id="${_id}" class="js-product">
+            <img src="${book_image}" alt="${list_name}" class="img-size" loading="lazy"/>
             <h3 class="book-name-style">${title}</h3>
             <p class="author-style">${author}</p>
         </li>
-        `).join('');
+    `).join('');
 }
 
-
-function createBookMarkUp({ _id , book_image, list_name, author, title} = {}) {
+function createBookMarkUp({ _id, book_image, list_name, author, title } = {}) {
+    const books = JSON.parse(localStorage.getItem('add')) || [];
+    const isInList = books.some(value => value == _id);
     return `<div class="modal" data-id="${_id}">
-    <button class="modal-close">X</button>
-     <img src="${book_image}" alt="${list_name}" class="popup-img" loading="lazy"/>
-     <div class="content">
-<h3 class="title">${title}</h3>
-            <p class="author">${author}</p>
-            <p class="text">Info Info Info Info Info Info Info Info Info Info Info Info</p>
-             <ul class="shop-list">
-      <li><a href="#"><img src="${ amazon }" width="62" height="19" alt="amazon"/></a></li>
-      <li><a href="#"><img src="../images/orange-book.png" width="62" height="19" alt="orange-book"/></a></li>
-      <li><a href="#"><img src="../images/books.png" width="62" height="19" alt="books"/></a></li>
-    </ul>
-     </div>
-            <button class="add-to-cart-btn">ADD TO SHOPPING LIST</button>
-    </div>`
+                <button class="modal-close">X</button>
+                <img src="${book_image}" alt="${list_name}" class="popup-img" loading="lazy"/>
+                <div class="content">
+                    <h3 class="title">${title}</h3>
+                    <p class="author">${author}</p>
+                    <p class="text">Info Info Info Info Info Info Info Info Info Info Info Info</p>
+                    <ul class="shop-list">
+                        <li><a href="#"><img src="${ amazon }" width="62" height="19" alt="amazon"/></a></li>
+                        <li><a href="#"><img src="../images/orange-book.png" width="62" height="19" alt="orange-book"/></a></li>
+                        <li><a href="#"><img src="../images/books.png" width="62" height="19" alt="books"/></a></li>
+                    </ul>
+                </div>
+                <button class="add-to-cart-btn">${isInList ? 'REMOVE FROM LIST' : 'ADD TO SHOPPING LIST'}</button>
+            </div>`
 }
 
 bookList.addEventListener('click', handlerBook);
 
-
 let currentLightboxInstance = null;
 
 function handlerBook(evt) {
-  const bookItem = evt.target.closest('.js-product');
-  const bookId = bookItem.dataset.id;
+    const bookItem = evt.target.closest('.js-product');
+    const bookId = bookItem.dataset.id;
 
-  
     const obj = findBookItem(bookId);
     console.log(obj);
-
-    // closeLightbox();
 
     const instance = basicLightbox.create(createBookMarkUp(obj));
     instance.show();
 
-      currentLightboxInstance = instance;
-      
-    //updateButtonsInShoppingList();
-    //   document.addEventListener('click', handlerOutsideModal)
+    currentLightboxInstance = instance;
 
     const btnClose = document.querySelector('.modal-close');
     btnClose.addEventListener('click', closeLightbox);
@@ -99,13 +88,37 @@ function handlerBook(evt) {
         document.body.classList.remove('disable-scroll');
     })
 
+    const btnAdd = document.querySelector('.add-to-cart-btn');
+    // btnAdd.addEventListener('click', (idBook) => {
+    //     localStorage.setItem('add', JSON.stringify(bookId))
+    // })
+
+    btnAdd.addEventListener('click', handlerClickAdd);
+    function handlerClickAdd(idBooks) {
+        closeLightbox();
+        const books = JSON.parse(localStorage.getItem('add')) || [];
+        const isInList = books.some(value => value == bookId);
+        console.log(isInList);
+        if (isInList) {
+            btnAdd.textContent = "REMOVE FROM SHOPPING LIST";
+            const updatedBooks = books.filter(value => value != bookId);
+            localStorage.setItem('add', JSON.stringify(updatedBooks));
+        } else {
+            btnAdd.textContent = "ADD TO SHOPPING LIST";
+            books.push(bookId);
+            localStorage.setItem('add', JSON.stringify(books));
+        }
+        // books.push(bookId);
+        // localStorage.setItem('add', JSON.stringify(books));
+
+    }
+
     document.body.classList.add('disable-scroll');
 }
 
 
 function findBookItem(item) {
     const data = JSON.parse(localStorage.getItem('list'));
- 
     let currentBook;
     for (const el of data) {
       currentBook = el.books.find(({ _id }) => _id === item);
@@ -118,7 +131,6 @@ function findBookItem(item) {
 function closeLightbox() {
     console.log(currentLightboxInstance)
     if (currentLightboxInstance) {
-
         currentLightboxInstance.close();
         currentLightboxInstance = null; 
     }
@@ -126,7 +138,12 @@ function closeLightbox() {
     document.body.classList.remove('disable-scroll')
 }
 
-
+document.addEventListener('keydown', function (event) {
+    const keyCode = event.keyCode || event.which;
+    if (keyCode === 27) {
+        closeLightbox();
+    }
+});
 
 // // function handleOutsideModalClick(event) {
 // //   const modalContent = document.querySelector('.modal .content');
@@ -142,12 +159,12 @@ function closeLightbox() {
 //     } 
 // });
 
-document.addEventListener('keydown', function (event) {
-    const keyCode = event.keyCode || event.which;
-    if (keyCode === 27) {
-        closeLightbox();
-    }
-});
+// document.addEventListener('keydown', function (event) {
+//     const keyCode = event.keyCode || event.which;
+//     if (keyCode === 27) {
+//         closeLightbox();
+//     }
+// });
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
