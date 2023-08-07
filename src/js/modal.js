@@ -1,5 +1,8 @@
 import * as basicLightbox from 'basiclightbox';
 import amazon from '../images/amazon.jpg';
+import orangeBook from '../images/orangeBook.png';
+import booksImg from '../images/booksImg.png';
+import close from '../images/close.png';
 
 
 function serviceBook() {
@@ -45,23 +48,25 @@ function createMarkUp(arr) {
     `).join('');
 }
 
-function createBookMarkUp({ _id, book_image, list_name, author, title } = {}) {
+function createBookMarkUp({ _id, book_image, list_name, author, title, description } = {}) {
     const books = JSON.parse(localStorage.getItem('add')) || [];
     const isInList = books.some(value => value == _id);
     return `<div class="modal" data-id="${_id}">
-                <button class="modal-close">X</button>
+                <button class="modal-close">
+                </button>
                 <img src="${book_image}" alt="${list_name}" class="popup-img" loading="lazy"/>
                 <div class="content">
                     <h3 class="title">${title}</h3>
                     <p class="author">${author}</p>
-                    <p class="text">Info Info Info Info Info Info Info Info Info Info Info Info</p>
+                    <p class="text">${description}</p>
                     <ul class="shop-list">
-                        <li><a href="#"><img src="${ amazon }" width="62" height="19" alt="amazon"/></a></li>
-                        <li><a href="#"><img src="../images/orange-book.png" width="62" height="19" alt="orange-book"/></a></li>
-                        <li><a href="#"><img src="../images/books.png" width="62" height="19" alt="books"/></a></li>
+                        <li><a href="#" class="shop-link"><img src="${ amazon }" width="62" height="19" alt="amazon" class="shop-img"/></a></li>
+                        <li><a href="#" class="shop-link"><img src="${orangeBook}" width="33" height="32" alt="orange-book" class="shop-img"/></a></li>
+                        <li><a href="#" class="shop-link"><img src="${booksImg}" width="38" height="36" alt="books" class="shop-img"/></a></li>
                     </ul>
                 </div>
-                <button class="add-to-cart-btn">${isInList ? 'REMOVE FROM LIST' : 'ADD TO SHOPPING LIST'}</button>
+                <button class="add-to-cart-btn">${isInList ? 'REMOVE FROM THE SHOPPING LIST' : 'ADD TO SHOPPING LIST'}</button>
+                <p class="text-under-btn">${isInList ? 'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.' : ''}</p>
             </div>`
 }
 
@@ -100,7 +105,7 @@ function handlerBook(evt) {
         const isInList = books.some(value => value == bookId);
         console.log(isInList);
         if (isInList) {
-            btnAdd.textContent = "REMOVE FROM SHOPPING LIST";
+            btnAdd.textContent = "REMOVE FROM THE SHOPPING LIST";
             const updatedBooks = books.filter(value => value != bookId);
             localStorage.setItem('add', JSON.stringify(updatedBooks));
         } else {
@@ -145,12 +150,6 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
-// // function handleOutsideModalClick(event) {
-// //   const modalContent = document.querySelector('.modal .content');
-// //   if (!modalContent.contains(event.target)) {
-// //     closeLightbox();
-// //   }
-// // }
 
 // document.addEventListener('click', function (event) {
 //     const target = event.target;
@@ -159,12 +158,7 @@ document.addEventListener('keydown', function (event) {
 //     } 
 // });
 
-// document.addEventListener('keydown', function (event) {
-//     const keyCode = event.keyCode || event.which;
-//     if (keyCode === 27) {
-//         closeLightbox();
-//     }
-// });
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
