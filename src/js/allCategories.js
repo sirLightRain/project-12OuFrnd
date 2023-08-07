@@ -1,5 +1,6 @@
 import { renderingBookCard } from './selected-category';
 import { renderingBookCardAll } from './selected-category';
+import { renderingBookBestSellers } from './selected-category';
 const listOfAllCategories = document.querySelector('.list-of-all-categories');
 
 // load All Categories
@@ -49,6 +50,7 @@ async function loadTopBooks() {
   const responceResult = await responce.json();
   console.log('Top books: ', responceResult);
   if (responceResult) {
+    // renderingBookBestSellers(responceResult);
     renderingBookCardAll(responceResult);
   } else {
     allCategories.innerHTML = responceResult.message;

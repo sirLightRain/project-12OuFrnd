@@ -1,7 +1,7 @@
 import charities from './charities';
 
 import Swiper from 'swiper';
-// import { Navigation } from 'swiper';
+import { Navigation } from 'swiper';
 import 'swiper/swiper.min.css';
 
 

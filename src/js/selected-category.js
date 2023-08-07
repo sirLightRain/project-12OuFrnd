@@ -101,6 +101,40 @@ export function renderingBookCardAll(data) {
   ulSelectedBook.innerHTML = selectedBookCard;
 }
 
+//! ========================================================================= 07.08.2023 
+// export function renderingBookBestSellers(data) {
+//   const ulSelectedBook = document.querySelector('.selected-books-js');
+//   const headerCategory = document.querySelector('.header-category');
+//   const lastWord = document.querySelector('.header-last-word');
+  
+//   headerCategory.textContent = `Best Sellers `;
+//   lastWord.textContent = ` Books`;
+//   let selectedBookCard = ``;
+
+//   // Додаємо заголовок категорії (list_name) у <h2>
+//   const categoryHeader = document.createElement('h2');
+//   categoryHeader.textContent = responseResult[0].list_name; // Вважаємо, що список книжок має заголовок тільки однієї категорії
+//   container.appendChild(categoryHeader);
+
+//   console.log(data);
+//   data.forEach(({ books }) => {
+//     books.forEach(({ book_image, title, author }) => { // list_name - назва категорії
+//       selectedBookCard += `
+//         <li class="book-li">
+//           <div class="book-div">
+//             <img src="${book_image}" alt="${title}" class="book-img" />
+//             <button class="card-animation">QUICK VIEW</button>
+//           </div>
+//           <p class="book-title">${title}</p>
+//           <p class="book-author">${author}</p>
+//         </li>
+//   `;
+//     });
+//   });
+//   ulSelectedBook.innerHTML = selectedBookCard;
+// }
+//! ========================================================================= 07.08.2023 
+
 // додаємо модалку на картку книги
 // кнопка See More
 let seeMoreBtn = document.querySelector('.see-more');
