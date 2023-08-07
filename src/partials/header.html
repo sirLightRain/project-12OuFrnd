@@ -1,94 +1,65 @@
 <header class="header container">
-    <!-- <nav class="nav-logo">
-        <a href="" class="logo-link">
-            <svg class="logo-svg" width="24" height="24">
-                <use href="./images/sprite.svg#logo-6-1"></use>
-            </svg>
-        </a>
-        <a href="" class="logo-text">
-            <svg class="logo-text-svg" width="77" height="14">
-                <use href="./images/sprite.svg#Bookshelf-1"></use>
-            </svg>
-        </a>
-        <ul class="header-list">
-            <li class="header-item">
-                <a href="" class="current-home">Home</a>
-            </li>
-            <li class="header-item">
-                <a href="" class="current-shopping">
-                    <span class="shopping-span">Shopping list</span>
-                    <svg class="" width="20" height="20">
-                        <use href="./images/sprite.svg#lock-02-1"></use>
-                    </svg>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <div class="authorization">
-        <svg class="" width="40" height="24">
-            <use href="./images/sprite.svg#filter0_i_27513_31"></use>
-        </svg>
-        
-        <button type="button" class="mobile-menu-open js-open-menu">
-            <svg class="mobile-menu-open__icon" width="28" height="28">
-                <use href="./images/sprite.svg#align-left-2-1"></use>
-            </svg>
-        </button>
-        <div class="user">
-            <svg class="user-photo" width="37" height="37">
-                <use href="./images/sprite.svg#user-1"></use>
-            </svg>
-            <p class="name-user">Stephen</p>
-            <svg class="user-exit" width="23" height="26">
-                <use href="./images/sprite.svg#fi-ss-caret-down-1"></use>
-            </svg>
-        </div>
-    </div> -->
-    
-    <div class="mobile-menu js-menu-container">
-        <div class="mobile-menu__container">
-            <div class="mobile-logo">
-                <a href="" class="logo-link">
-                    <svg class="logo-svg" width="24" height="24">
-                        <use href="./images/sprite.svg#logo-6-1"></use>
-                    </svg>
-                </a>
-                <a href="" class="logo-text">
-                    <svg class="logo-text-svg" width="77" height="14">
-                        <use href="./images/sprite.svg#Bookshelf-1"></use>
-                    </svg>
-                </a>
-            </div>
-            <div class="mobile-close-menu">
-                <svg class="" width="40" height="24">
-                        <use href="./images/sprite.svg#Switcher-2-4"></use>
+    <div class="header-box">
+        <nav class="nav-logo">
+            <a href="/src/index.html" class="logo-link">
+                <svg class="logo-svg" width="24" height="24">
+                    <use href="./images/sprite.svg#logo-6-1"></use>
                 </svg>
-                <button type="button" class="mobile-menu__close-btn js-close-menu">
-                    <svg class="mobile-menu__close-icon" width="28" height="28">
-                        <use href="./images/sprite.svg#x-close-2-1"></use>
+                <svg class="logo-text-svg" width="77" height="28">
+                    <use href="./images/sprite.svg#Bookshelf-1"></use>
+                </svg>
+            </a>
+            <ul class="box-nav-list mobile-nav">
+                <li>
+                    <a class="header-item home-link" href="/src/index.html" class="current-home home-link">HOME</a>
+                </li>
+                <li>
+                    <a class="header-item shopping-link-menu" href="" class="current-shopping shopping-link">
+                        SHOPPING  LIST
+                    </a>
+                </li>
+            </ul>
+            <div class="mobile-panel">
+                <label class="switch" id="theme-switch-header">
+                    <input type="checkbox" class="theme-checkbox">
+                    <span class="slider"></span>
+                </label>
+                <button type="button" class="menu-button" aria-expanded="false" aria-controls="menu-container" data-menu-button>
+                    <svg aria-label="mobile menu-button" width="28" height="28">
+                        <use class="icon-close-menu" href="./images/sprite.svg#x-close"></use>
+                        <use class="icon-menu" href="./images/sprite.svg#align-left"></use>
+                    </svg>
+                </button>
+                <button class="user">
+                    <svg class="icon-user" width="37" hight="37">
+                        <use class="user" href="./images/sprite.svg#user-3-1"></use>
+                    </svg>
+                    Stephen
+                    <svg width="23" hight="26">
+                        <use class="user" href="./images/sprite.svg#fi-ss-caret-down-5-1"></use>
                     </svg>
                 </button>
             </div>
-        </div>
-        <div class="burger-user">
-            <svg class="user-photo" width="37" height="37">
-                <use href="./images/sprite.svg#user-1"></use>
-            </svg>
-            <p class="name-user">Stephen</p>
-        </div>
-        <ul class="burger-header-list">
-            <li class="header-item">
-                <a href="" class="current-home">Home</a>
-            </li>
-            <li class="header-item">
-                <a href="" class="current-shopping">
-                    <p class="shopping-span">Shopping list</p>
-                    <svg class="" width="20" height="20">
-                        <use href="./images/sprite.svg#lock-02-1"></use>
+            <div class="menu-container" id="menu-container" data-menu>
+                <button class="signup" type="button">
+                    Stephen
+                    <svg class="arrow-right-icon" width="20" hight="20">
+                        <use class="icon-menu" href="./images/sprite.svg#arrow-right"></use>
                     </svg>
-                </a>
-            </li>
-        </ul>
-           <img src="/src/images/Burger-image 1x.png" width="" height="" alt="">
-    </div>
+                </button>
+                <ul class="mobile-menu">
+                    <ul class="box-nav-list">
+                        <li>
+                            <a class="header-item home-link-menu" href="/src/index.html" class="current-home home-link-menu">HOME</a>
+                        </li>
+                        <li>
+                            <a class="header-item shopping-link-menu" href="" class="current-shopping shopping-link-menu">
+                                SHOPPING LIST
+                            </a>
+                        </li>
+                    </ul>
+                </ul>
+            </div>   
+        </nav>
+    </div>   
 </header>
