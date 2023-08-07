@@ -112,6 +112,11 @@
 
 // Змінюємо розміри зображення при переході на більші екрани
 @media screen and (min-width: 768px) and (max-width: 1439px) {
+
+  .cover {
+    display: flex;
+  }
+
   .category-container {
     width: 704px;
     height: 474px;
@@ -132,6 +137,11 @@
 }
 
 @media screen and (min-width: 1440px) {
+
+  .cover {
+    flex-direction: column;
+  }
+
   .category-container {
     width: 996px;
     height: 426px;
