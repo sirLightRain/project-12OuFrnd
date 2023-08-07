@@ -1,3 +1,3 @@
-// // Support Ukraine block
-import '/src/js/support-ukraine/support.js';
-import '/src/js/support-ukraine/charities.js';
+// Support Ukraine block
+import './js/support-ukraine/support.js';
+import './js/support-ukraine/charities.js';

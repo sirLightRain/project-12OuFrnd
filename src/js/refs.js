@@ -1,6 +1,6 @@
-//export default function () {
-//return {
-// Support Ukraine
-//supportUkraineCnt: document.querySelector('.support-list'),
-//};
-//}
+export default function () {
+  return {
+    // Support Ukraine
+    supportUkraine: document.querySelector('.support-list'),
+  };
+}
