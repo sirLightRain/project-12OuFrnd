@@ -131,7 +131,7 @@ function findBookItem(item) {
 
 
 function closeLightbox() {
-    console.log(currentLightboxInstance)
+    //console.log(currentLightboxInstance)
     if (currentLightboxInstance) {
         currentLightboxInstance.close();
         currentLightboxInstance = null;
@@ -147,61 +147,3 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
-
-// document.addEventListener('click', function (event) {
-//     const target = event.target;
-//     if (target.classList.contains('modal-close')) {
-//         closeLightbox();
-//     } 
-// });
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////
-
-// bookList.addEventListener('click', function (evt) {
-//     if (evt.target.classList.contains('add-to-cart-btn')) {
-//         hendlerClickAdd(evt);
-//     }
-// });
-
-// function hendlerClickAdd(evt) {
-//     const button = evt.target;
-//     const bookId = button.closest('.modal').dataset.id;
-
-//     const storedBooks = JSON.parse(localStorage.getItem('shoppingList') || '[]');
-
-//     const isBookInShoppingList = storedBooks.some((book) => book._id === bookId);
-
-//     if (isBookInShoppingList) {
-//         // Якщо книга вже в shopping list, то видаляємо її
-//         const updatedBooks = storedBooks.filter((book) => book._id !== bookId);
-//         localStorage.setItem('shoppingList', JSON.stringify(updatedBooks));
-//         button.textContent = 'ADD TO SHOPPING LIST';
-//     } else {
-//         // Якщо книни немає в shopping list, то додаємо її
-//         const book = currentLightboxInstance.element().querySelector('.content h3.title').textContent;
-//         const author = currentLightboxInstance.element().querySelector('.content p.author').textContent;
-//         storedBooks.push({ _id: bookId, title: book, author: author });
-//         localStorage.setItem('shoppingList', JSON.stringify(storedBooks));
-//         button.textContent = 'REMOVE FROM SHOPPING LIST';
-//     }
-// }
-// function updateButtonsInShoppingList() {
-//     const storedBooks = JSON.parse(localStorage.getItem('shoppingList') || '[]');
-
-//     const buttons = document.querySelectorAll('.add-to-cart-btn');
-//     buttons.forEach((button) => {
-//         const bookId = button.closest('.modal').dataset.id;
-//         const isBookInShoppingList = storedBooks.some((book) => book._id === bookId);
-
-//         if (isBookInShoppingList) {
-//             button.textContent = 'REMOVE FROM SHOPPING LIST';
-//         } else {
-//             button.textContent = 'ADD TO SHOPPING LIST';
-//         }
-//     });
-// }
-
-// // Визиваємо updateButtonsInShoppingList, коли сторінка завантажується
-// updateButtonsInShoppingList();
