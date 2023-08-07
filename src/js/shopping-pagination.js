@@ -1,4 +1,4 @@
-
+// Активний стан кнопок для Пагінації:
 const pages = document.querySelectorAll('.pgs-number-list.pgs-list .page-number');
 pages.forEach((page) => {
     page.addEventListener('click', handlePageClick);
@@ -22,54 +22,10 @@ function handlePageClick(event) {
 
     clickedSvgIcon.classList.add('icon-active');
     clickedNumberSpan.classList.add('number-color-active');
-
-    if (clickedPage.parentElement.classList.contains('dots')) {
-        const numberList = document.querySelector('.pgs-number-list.pgs-list');
-        const remainingCards = document.querySelectorAll('.card:not([style*="display: block"])');
-
-        let cardsToAppend = Math.min(remainingCards.length, pageSize);
-        let newPageNumber = pages.length - 1; 
-
-        const newPageItems = Array.from({ length: cardsToAppend }, (_, index) => {
-            const pageNumber = newPageNumber + index;
-            return `
-                <li class="page-item">
-                    <a href="#" class="page-number">
-                        <svg class="ellipse-icon-light">
-                            <use href="./images/favicon.svg#Ellipse"></use>
-                        </svg>
-                        <span class="number-desc number-color">${pageNumber}</span>
-                    </a>
-                </li>
-            `;
-        });
-
-        numberList.innerHTML = ''; 
-        numberList.innerHTML += newPageItems.join('');
-
-        if (remainingCards.length > pageSize) {
-            const dotsItem = `
-                <li class="dots page-item">
-                    <a href="#" class="page-number">
-                        <svg class="ellipse-icon-light">
-                            <use href="./images/favicon.svg#Ellipse"></use>
-                        </svg>
-                        <span class="number-desc number-color">...</span>
-                    </a>
-                </li>
-            `;
-            numberList.innerHTML += dotsItem;
-        }
-
-        const newPages = document.querySelectorAll('.pgs-number-list.pgs-list .page-number');
-        newPages.forEach((page) => {
-            page.addEventListener('click', handlePageClick);
-        });
-
-    }
 }
 
 // ==================================================================
+// Розподілення карток по сторінках:
 
 const cards = document.querySelectorAll('.card');
 const pageSize = 3;
@@ -88,11 +44,11 @@ function showPage(page) {
         }
     });
 }
-
 showPage(currentPage);
 
 
 // ==================================================================
+// Бокові кнопки для пагінації:
 
 const prevFirstPageLink = document.querySelector('.pgs-previous-list .page-item:first-child');
 const prevPageLink = document.querySelector('.pgs-previous-list .page-item:last-child');
@@ -133,7 +89,6 @@ function showPageAndUpdateActiveLink(page) {
     showPage(page);
 }
 
-
 lastPageLink.addEventListener('click', () => {
     currentPage = Math.ceil(cards.length / pageSize);
     activePageLink.querySelector('.ellipse-icon-light').classList.remove('icon-active');
@@ -144,7 +99,7 @@ lastPageLink.addEventListener('click', () => {
     showPage(currentPage);
 });
 
-
+// ==================================================================
 
 const pageLinks = document.querySelectorAll('.pgs-number-list .page-item');
 
@@ -161,7 +116,31 @@ pageLinks.forEach((pageLink, index) => {
 });
 
 
+// ==================================================================
+// Адаптив для мобільної версії сайту: 
 
+const screenWidth = window.innerWidth;
+const pageList = document.querySelector('.pgs-number-list.pgs-list');
+const thirdPageItem = pageList.querySelector('.page-item:nth-child(3)');
 
+if (screenWidth >= 375) {
+    if (thirdPageItem) {
+        thirdPageItem.style.display = 'none';
+    }
+}
 
+if (screenWidth >= 768) {
+    if (thirdPageItem) {
+        thirdPageItem.style.display = 'block';
+    }
+}
 
+window.addEventListener('resize', () => {
+    const newScreenWidth = window.innerWidth;
+
+    if (newScreenWidth >= 375 && thirdPageItem) {
+        thirdPageItem.style.display = 'none';
+    } else if (newScreenWidth >= 768 && thirdPageItem) {
+        thirdPageItem.style.display = 'block';
+    }
+});
