@@ -86,7 +86,7 @@
     .div-all-categories {
         width: 337px;
         height: 472;
-        margin-bottom: 86px;
+        margin-bottom: 0px;
         margin-right: 32px;
     }   
 
@@ -103,5 +103,6 @@
 @media screen and (min-width: 1440px) {
     .div-all-categories {
     width: 356px;
+    margin-bottom: 86px;
     }   
 }

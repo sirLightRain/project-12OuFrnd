@@ -1,5 +1,4 @@
-// .best-sellers-books {
-// }
+
 
 .js-product {
   display: block;
@@ -9,6 +8,7 @@
 // Контейнер для карток книг
 .books-list {
   display: flex;
+  // flex-direction: column;
   justify-content: space-between;
 }
 
@@ -100,10 +100,6 @@
     height: 485px;
     object-fit: cover; //* Зображення заповнює контейнер
   }
-
-  // .img-size + .img-size {
-  //   margin-left: 25px;;
-  // }
 
   .book-name-style {
     width: 335px;

@@ -4,6 +4,7 @@ import Swiper from 'swiper';
 // import { Navigation } from 'swiper';
 import 'swiper/swiper.min.css';
 
+
 const list = document.querySelector('.support-list');
 
 const html = charities.map(makeMarkup).join('');
