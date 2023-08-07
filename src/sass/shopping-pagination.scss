@@ -147,7 +147,8 @@
 
 // .dots {}
 
-.page-item:is(:hover, :focus) {
+.page-item:not(.dots):hover,
+.page-item:not(.dots):focus {
     animation: animatePg 1500ms ease-in-out 500ms;
 }
 
