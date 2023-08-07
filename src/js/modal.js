@@ -27,6 +27,7 @@ serviceBook();
 
 const bookList = document.querySelector(".books-list");
 
+//Ця функція додає розмітку в ul
 function createBookList() {
     const listData = JSON.parse(localStorage.getItem('list'));
     //console.log(typeof listData);
@@ -37,6 +38,7 @@ function createBookList() {
 
 createBookList();
 
+//Ця функція додаткова, вона видає макет книг, щоб відбувався клік на книгу та відкривалась для кожної книги модалка з відповідною інфою  
 function createMarkUp(arr) {
     return arr.map(({ _id , book_image, list_name, author, title}) => `
         <li data-id="${_id}" class="js-product">
@@ -47,6 +49,7 @@ function createMarkUp(arr) {
     `).join('');
 }
 
+//Ця функкція відмальовує саму модалку
 function createBookMarkUp({ _id, book_image, list_name, author, title, description } = {}, url) {
     const books = JSON.parse(localStorage.getItem('add')) || [];
     const isInList = books.some(value => value == _id);
@@ -75,17 +78,17 @@ let currentLightboxInstance = null;
 
 function handlerBook(evt) {
     const bookItem = evt.target.closest('.js-product');
-    const bookId = bookItem.dataset.id;
+    const bookId = bookItem.dataset.id; //отримання id
 
-    const obj = findBookItem(bookId);
+    const obj = findBookItem(bookId); //отримуємо об'єкт зі знайденим id
     //console.log(obj);
     //console.log(obj.buy_links)
-    let url =[];
+    let url =[]; //це для посилань на shop
     obj.buy_links.map(value => url.push(value.url));
     //console.log(url);
 
     const instance = basicLightbox.create(createBookMarkUp(obj, url));
-    instance.show();
+    instance.show(); //показує модалку
 
     currentLightboxInstance = instance;
 
@@ -129,7 +132,7 @@ function findBookItem(item) {
     return currentBook || {}; 
 }
 
-
+//закривання модалки
 function closeLightbox() {
     //console.log(currentLightboxInstance)
     if (currentLightboxInstance) {
@@ -140,6 +143,7 @@ function closeLightbox() {
     document.body.classList.remove('disable-scroll')
 }
 
+//це для закривання модалки по esc
 document.addEventListener('keydown', function (event) {
     const keyCode = event.keyCode || event.which;
     if (keyCode === 27) {
