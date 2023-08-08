@@ -15,6 +15,8 @@
 @import './allCatMenu/allCategories';
 // Стилі Selected Category
 @import './select-category';
-
 // Підключення стилів header
 @import './header';
+// Підключення стилів shoping-list
+@import './shopping-pagination.scss';
+@import './shopping-empty.scss'; 

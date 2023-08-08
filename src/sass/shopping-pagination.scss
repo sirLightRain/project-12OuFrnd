@@ -1,0 +1,249 @@
+//*! ======== MOBILE ========*/
+
+@media screen and (min-width: 375px) {
+
+    .shopping-pagination {
+        display: flex; 
+        gap: 14px;
+        max-width: 323px; 
+        margin: 20px auto 40px auto;
+    }
+    
+    .pgs-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        margin: 0 auto;
+    }
+    
+    .page-item {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .page-number {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        position: relative;
+    }
+    
+    .ellipse-icon-dark {
+        width: 38px;
+        height: 38px;
+        flex-shrink: 0;
+        fill: #111;
+    }
+    
+    
+    .ellipse-icon-light {
+        width: 38px;
+        height: 38px;
+        flex-shrink: 0;
+        stroke-width: 1px;
+        stroke: #111;
+        fill: none;
+    }
+    
+    .ellipse-icon-yellow {
+        width: 38px;
+        height: 38px;
+        flex-shrink: 0;
+        fill: #EAC645;
+        stroke-width: 1px;
+        stroke: #000;
+    }
+    
+    .angle-left-icon-first {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+        fill: rgba(180, 175, 175, 1);
+        position: absolute;
+        top: 8px;
+        left: 5px;
+    }
+    
+    .angle-left-icon-second {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+        fill: rgba(180, 175, 175, 1);
+        position: absolute;
+        top: 8px;
+        left: 11px;
+    }
+    
+    .angle-left-icon {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+        fill: rgba(180, 175, 175, 1);
+        position: absolute;
+        top: 8px;
+        left: 8px;
+    }
+    
+    .angle-right-icon {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+        fill: #000;
+        position: absolute;
+        top: 8px;
+        left: 8px;
+    }
+    
+    .angle-right-icon-first {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+        fill: #000;
+        position: absolute;
+        top: 8px;
+        left: 5px;
+    }
+    
+    .angle-right-icon-second {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+        fill: #000;
+        position: absolute;
+        top: 8px;
+        left: 11px;
+    }
+    
+    .icon-active {
+        width: 38px;
+        height: 38px;
+        flex-shrink: 0;
+        fill: #111;
+        stroke-width: 1px;
+        stroke: #111;
+        
+    }
+    
+    .number-desc {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.2;
+        text-align: center;
+        text-decoration: none;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .number-color {
+        color: #111;
+    }
+    
+    .number-color-active {
+        color: #FFFFFF;
+    }
+    
+    .page-item:not(.dots):hover,
+    .page-item:not(.dots):focus {
+        animation: animatePg 1500ms ease-in-out 500ms;
+    }
+    
+    @keyframes animatePg {
+        0% {
+            opacity: 0.7;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+}
+
+
+//*! ======== TABLET and DESKTOP ========*/
+@media screen and (min-width: 768px) {
+
+    .shopping-pagination {
+        display: flex;
+        gap: 24px;
+        max-width: 446px; 
+        margin: 40px auto;
+    }
+
+    .pgs-list {
+        gap: 10px;
+    }
+
+    .page-item {
+        width: 44px;
+        height: 44px;
+    }
+  .ellipse-icon-dark {
+        width: 44px;
+        height: 44px;
+    }
+
+    .ellipse-icon-light {
+        width: 44px;
+        height: 44px;
+    }
+
+    .ellipse-icon-yellow {
+        width: 44px;
+        height: 44px;
+    }
+
+    .angle-left-icon-first {
+        width: 24px;
+        height: 24px;
+        top: 10px;
+        left: 6px;
+    }
+
+    .angle-left-icon-second {
+        width: 24px;
+        height: 24px;
+        top: 10px;
+        left: 13px;
+    }
+
+    .angle-left-icon {
+        width: 24px;
+        height: 24px;
+        top: 10px;
+        left: 10px;
+    }
+
+    .angle-right-icon {
+        width: 24px;
+        height: 24px;
+        top: 10px;
+        left: 10px;
+    }
+
+    .angle-right-icon-first {
+        width: 24px;
+        height: 24px;
+        top: 10px;
+        left: 7px;
+    }
+
+    .angle-right-icon-second {
+        width: 24px;
+        height: 24px;
+        top: 10px;
+        left: 14px;
+    }
+
+    .icon-active {
+        width: 44px;
+        height: 44px;
+    }
+  }
+
