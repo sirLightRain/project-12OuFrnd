@@ -18,13 +18,12 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
-
+    "@parcel/transformer-css": "^2.9.3",
+    "axios": "^1.4.0",
+    "Buffer": "npm:buffer@^6.0.3",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
-    "swiper": "^10.1.0",
-    "axios": "^1.4.0",
-    "Buffer": "npm:buffer@^6.0.3"
-
+    "swiper": "^10.1.0"
   },
   "devDependencies": {
     "@parcel/transformer-less": "^2.6.0",
