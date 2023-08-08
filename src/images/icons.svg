@@ -41,3 +41,11 @@
     <path d="M5.352 26.618l1.041-3.915 2.847 2.866-3.888 1.049z"></path>
     <path d="M26.648 26.618l-3.888-1.049 2.847-2.866 1.041 3.915z"></path>
 </symbol>
+<!-- При злитті прийням обидві зміни, можливо буде глюк ... 08.08.2023 -->
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-x-close" viewBox="0 0 32 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.4286" d="M24 8l-16 16M8 8l16 16"></path>
+</symbol>
+</defs>
+</svg>
