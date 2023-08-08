@@ -1,6 +1,7 @@
 import { renderingBookCard } from './selected-category';
 import { renderingBookCardAll } from './selected-category';
 import { renderingBookBestSellers } from './selected-category';
+import Notiflix from 'notiflix';
 const listOfAllCategories = document.querySelector('.list-of-all-categories');
 
 // load All Categories
@@ -48,12 +49,13 @@ async function loadTopBooks() {
     method: 'GET',
   });
   const responceResult = await responce.json();
+  // Notiflix.Report.success('Title', 'Message', 'Button Text');
+
   console.log('Top books: ', responceResult);
   if (responceResult) {
-    // renderingBookBestSellers(responceResult);
     renderingBookCardAll(responceResult);
   } else {
-    allCategories.innerHTML = responceResult.message;
+    loadAllCategories.innerHTML = responceResult.message;
   }
 }
 
