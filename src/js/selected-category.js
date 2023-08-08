@@ -21,6 +21,7 @@ const END_OF_RESULTS_MESSAGE =
 const ERROR_TIMEOUT = 5000;
 const SUCCESS_TIMEOUT = 2500;
 
+
 export function reportSuccessOrFail(response, refs) {
   resetSearchForm(refs);
   if (response.data.title === 0) {
@@ -44,6 +45,7 @@ export function reachedLastPage() {
     svgSize: '220px',
   });
 }
+
 
 // рендеримо одну картку книги &  створюємо список карток з книгами
 export function renderingBookCard(data) {
