@@ -236,10 +236,10 @@ input:checked+.slider:before {
         letter-spacing: -0.56px;
         text-transform: uppercase;
     }
-    .container {
-        max-width: 768px;
-        padding: 22px 32px;
-    }
+    // .container {
+    //     max-width: 768px;
+    //     padding: 22px 32px;
+    // }
     .menu-button {
         display: none;
     }
@@ -284,10 +284,10 @@ input:checked+.slider:before {
         gap: 24px;
     }
 }
-@media screen and (min-width:1280px) {
-.container {
-        max-width: 1440px;
-        margin-right: auto;
-        margin-left: auto;
-    }
-}
+// @media screen and (min-width:1280px) {
+// .container {
+//         max-width: 1440px;
+//         margin-right: auto;
+//         margin-left: auto;
+//     }
+// }

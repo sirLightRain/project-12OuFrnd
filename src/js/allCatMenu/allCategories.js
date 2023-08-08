@@ -60,7 +60,6 @@ async function selectedCategory(event) {
       method: 'GET',
     });
     const responceResult = await responce.json();
-
     console.log('selected Category: ', responceResult);
   }
 }

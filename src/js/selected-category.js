@@ -1,4 +1,7 @@
 import Notiflix from 'notiflix';
+import { serviceBook } from './modal';
+import { createBookMarkUp } from './modal';
+import { closeLightbox } from './modal';
 
 // -------------------     3апускаємо спіннер
 const loadingMessage = document.querySelector('.loader');
@@ -59,14 +62,14 @@ export function renderingBookCard(data) {
   lastWord.textContent = `${words[words.length - 1]}`;
 
   console.log(data);
-  data.forEach(({ book_image, title, author }) => {
+  data.forEach(({ book_image, title, author, _id }) => {
     selectedBookCard += `
     <li class ="book-li">
     <div class="book-div">
     <img src="${book_image}" alt="${title}" class="book-img"/>
-    <button class="card-animation">
+    <a href="https://books-backend.p.goit.global/books/${_id}" class="card-animation">
     QUICK VIEW
-    </button>
+    </a>
     </div>
     <p class="book-title">${title}</p>
     <p class="book-author">${author}</p>
@@ -74,6 +77,7 @@ export function renderingBookCard(data) {
   `;
   });
   ulSelectedBook.innerHTML = selectedBookCard;
+  ulSelectedBook.addEventListener("click", buttonBookCardFunc)
 }
 
 export function renderingBookCardAll(data) {
@@ -85,14 +89,14 @@ export function renderingBookCardAll(data) {
   let selectedBookCard = ``;
   console.log(data);
   data.forEach(({ books }) => {
-    books.forEach(({ book_image, title, author }) => {
+    books.forEach(({ book_image, title, author, _id }) => {
       selectedBookCard += `
       <li class ="book-li">
     <div class="book-div">
     <img src="${book_image}" alt="${title}" class="book-img"/>
-    <button class="card-animation">
+    <a href="https://books-backend.p.goit.global/books/${_id}" class="card-animation">
     QUICK VIEW
-    </button>
+    </a>
     </div>
     <p class="book-title">${title}</p>
     <p class="book-author">${author}</p>
@@ -101,7 +105,30 @@ export function renderingBookCardAll(data) {
     });
   });
   ulSelectedBook.innerHTML = selectedBookCard;
+ulSelectedBook.addEventListener("click", buttonBookCardFunc)
 }
+
+
+function buttonBookCardFunc(evt){
+  if(!evt.target.classList.contains("card-animation")){
+    return
+  }
+  evt.preventDefault() 
+  document.body.classList.add('disable-scroll');
+  const modalElDiv = document.querySelector(".modal-js");
+  const bookUrl = evt.target.href;
+  console.dir(bookUrl)
+  serviceBook(bookUrl)
+  .then((data) => {
+    localStorage.setItem('list', JSON.stringify(data));
+    createBookMarkUp(data)
+    const btnClose = document.querySelector('.modal-close');
+    btnClose.addEventListener('click', closeLightbox); 
+    })
+    .catch(err => console.log(err))
+}
+
+
 
 //! ========================================================================= 07.08.2023 
 // export function renderingBookBestSellers(data) {
@@ -139,6 +166,6 @@ export function renderingBookCardAll(data) {
 
 // додаємо модалку на картку книги
 // кнопка See More
-let seeMoreBtn = document.querySelector('.see-more');
+// let seeMoreBtn = document.querySelector('.see-more');
 
 // пагінація
