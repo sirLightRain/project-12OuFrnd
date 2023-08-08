@@ -65,9 +65,7 @@
     width: 82px;
     height: 17px;
 }
-.molile-shoping-list {
-    display: flex;
-    align-items: center;
+.mobile-shoping-list {
     margin-top: 16px;
     color: #FFF;
 }
@@ -216,13 +214,11 @@ input:checked+.slider:before {
     width: 72px;
     height: 34px;
     border-radius: 36px;
-    border: 1.5px solid #111;
-    background: var(--yellow);
-    color: #111;
+    color: #fff;
     font-family: DM Sans;
     font-size: 14px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 18px;
     letter-spacing: -0.56px;
     text-transform: uppercase;
@@ -236,9 +232,11 @@ input:checked+.slider:before {
     background: var(--yellow);
 }
 .shopping-link-menu {
+    display: flex;
+    align-items: center;
     padding: 7px 16px;
     border-radius: 36px;
-    display: flex;
+    gap: 4px;
 }
 .shopping-link-menu:hover,
 .shopping-link-menu:focus {
@@ -321,11 +319,16 @@ input:checked+.slider:before {
         display: flex;
         align-items: center;
     }
+    .mobile-home-list {
+        color: #FFF;
+    }
     .box-nav-list {
         display: flex;
         align-items: center;
         gap: 24px;
+        color: #FFF;
     }
+    
     .signup {
         display: block;
     }
@@ -349,6 +352,7 @@ input:checked+.slider:before {
     }
     .arrow-right-icon {
         stroke: var(--yellow);
+        height: 20px;
     }
     .nav-logo {
         align-items: center;
