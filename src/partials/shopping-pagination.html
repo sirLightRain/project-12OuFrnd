@@ -1,32 +1,3 @@
-<!-- ДІВИ для тестування роботи пагінації (потрібно видалити) -->
-<div class="card">
-  <p>111111111111111</p>
-</div>
-<div class="card">
-  <p>222222222222222</p>
-</div>
-<div class="card">
-  <p>333333333333333</p>
-</div>
-<div class="card">
-  <p>444444444444444</p>
-</div>
-<div class="card">
-  <p>555555555555555</p>
-</div>
-<div class="card">
-  <p>666666666666666</p>
-</div>
-<div class="card">
-  <p>777777777777777</p>
-</div>
-<div class="card">
-  <p>888888888888888</p>
-</div>
-<div class="card">
-  <p>999999999999999</p>
-</div>
-
 <div class="container">
   <div class="sup-shop-cont">
       <!-- ****** support Ukraine ****** -->
@@ -52,12 +23,13 @@
             </button>
           </div>
       </div>
-    
+      <!-- Секція shopping list -->
       <div class="shop-pagin-cont">
           <div class="empty-container">
             <h1 class="shopping-title">
               Shopping<span class="colored-text"> List</span>
             </h1>
+            <!--*** 1. цей дів відображається, якщо shoppinglist пустий: -->
             <div class="wrap-empty-desc">
               <p class="empty-desc">
                 This page is empty, add some books and proceed to order.
@@ -69,96 +41,102 @@
                 srcset="./images/empty_page@2x.jpg 2x"
               />
             </div>
-          </div>
-          <!-- Пагінація/ цей дів потрібно вставити в кінці секції Shopping-list: -->
-          <div class="shopping-pagination">
-            <ul class="pgs-previous-list pgs-list">
-              <li class="page-item">
-                <a href="#" class="page-number">
-                  <svg class="angle-left-icon-first">
-                    <use href="./images/favicon.svg#angle-left"></use>
-                  </svg>
-                  <svg class="angle-left-icon-second">
-                    <use href="./images/favicon.svg#angle-left"></use>
-                  </svg>
-                  <svg class="ellipse-icon-dark">
-                    <use href="./images/favicon.svg#Ellipse"></use>
-                  </svg>
-                </a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-number">
-                  <svg class="angle-left-icon">
-                    <use href="./images/favicon.svg#angle-left"></use>
-                  </svg>
-                  <svg class="ellipse-icon-dark">
-                    <use href="./images/favicon.svg#Ellipse"></use>
-                  </svg>
-                </a>
-              </li>
-            </ul>
-            <ul class="pgs-number-list pgs-list">
-              <li class="page-item">
-                <a href="#" class="page-number">
-                  <svg class="ellipse-icon-light">
-                    <use href="./images/favicon.svg#Ellipse"></use>
-                  </svg>
-                  <span class="number-desc number-color">1</span>
-                </a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-number">
-                  <svg class="ellipse-icon-light">
-                    <use href="./images/favicon.svg#Ellipse"></use>
-                  </svg>
-                  <span class="number-desc number-color">2</span>
-                </a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-number">
-                  <svg class="ellipse-icon-light">
-                    <use href="./images/favicon.svg#Ellipse"></use>
-                  </svg>
-                  <span class="number-desc number-color">3</span>
-                </a>
-              </li>
-        
-              <li class="dots page-item">
-                <a href="#" class="page-number">
-                  <svg class="ellipse-icon-light">
-                    <use href="./images/favicon.svg#Ellipse"></use>
-                  </svg>
-                  <span class="number-desc number-color">...</span>
-                </a>
-              </li>
-            </ul>
-            <ul class="pgs-next-list pgs-list">
-              <li class="page-item">
-                <a href="#" class="page-number">
-                  <svg class="angle-right-icon">
-                    <use href="./images/favicon.svg#angle-right"></use>
-                  </svg>
-                  <svg class="ellipse-icon-yellow">
-                    <use href="./images/favicon.svg#Ellipse"></use>
-                  </svg>
-                </a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-number">
-                  <svg class="angle-right-icon-first">
-                    <use href="./images/favicon.svg#angle-right"></use>
-                  </svg>
-                  <svg class="angle-right-icon-second">
-                    <use href="./images/favicon.svg#angle-right"></use>
-                  </svg>
-                  <svg class="ellipse-icon-yellow">
-                    <use href="./images/favicon.svg#Ellipse"></use>
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </div>
-      </div>
-  </div>
+            
+            <!--*** 2. цей дів відображається, якщо в shoppinglist додані картки з книгами: -->
+            <div class="wrap-container-shoppinglist">
+                <!--! ось нижче буде дів Саши з картками + дів Альони з пагінацією -->
+                <div class="cards-container"></div>
+                
+                <div class="shopping-pagination">
+                  <ul class="pgs-previous-list pgs-list">
+                    <li class="page-item">
+                      <a href="#" class="page-number">
+                        <svg class="angle-left-icon-first">
+                          <use href="./images/favicon.svg#angle-left"></use>
+                        </svg>
+                        <svg class="angle-left-icon-second">
+                          <use href="./images/favicon.svg#angle-left"></use>
+                        </svg>
+                        <svg class="ellipse-icon-dark">
+                          <use href="./images/favicon.svg#Ellipse"></use>
+                        </svg>
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a href="#" class="page-number">
+                        <svg class="angle-left-icon">
+                          <use href="./images/favicon.svg#angle-left"></use>
+                        </svg>
+                        <svg class="ellipse-icon-dark">
+                          <use href="./images/favicon.svg#Ellipse"></use>
+                        </svg>
+                      </a>
+                    </li>
+                  </ul>
+                  <ul class="pgs-number-list pgs-list">
+                    <li class="page-item">
+                      <a href="#" class="page-number">
+                        <svg class="ellipse-icon-light">
+                          <use href="./images/favicon.svg#Ellipse"></use>
+                        </svg>
+                        <span class="number-desc number-color">1</span>
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a href="#" class="page-number">
+                        <svg class="ellipse-icon-light">
+                          <use href="./images/favicon.svg#Ellipse"></use>
+                        </svg>
+                        <span class="number-desc number-color">2</span>
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a href="#" class="page-number">
+                        <svg class="ellipse-icon-light">
+                          <use href="./images/favicon.svg#Ellipse"></use>
+                        </svg>
+                        <span class="number-desc number-color">3</span>
+                      </a>
+                    </li>
+              
+                    <li class="dots page-item">
+                      <a href="#" class="page-number">
+                        <svg class="ellipse-icon-light">
+                          <use href="./images/favicon.svg#Ellipse"></use>
+                        </svg>
+                        <span class="number-desc number-color">...</span>
+                      </a>
+                    </li>
+                  </ul>
+                  <ul class="pgs-next-list pgs-list">
+                    <li class="page-item">
+                      <a href="#" class="page-number">
+                        <svg class="angle-right-icon">
+                          <use href="./images/favicon.svg#angle-right"></use>
+                        </svg>
+                        <svg class="ellipse-icon-yellow">
+                          <use href="./images/favicon.svg#Ellipse"></use>
+                        </svg>
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a href="#" class="page-number">
+                        <svg class="angle-right-icon-first">
+                          <use href="./images/favicon.svg#angle-right"></use>
+                        </svg>
+                        <svg class="angle-right-icon-second">
+                          <use href="./images/favicon.svg#angle-right"></use>
+                        </svg>
+                        <svg class="ellipse-icon-yellow">
+                          <use href="./images/favicon.svg#Ellipse"></use>
+                        </svg>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+            </div>
 
+          </div>
+        </div>
+  </div>
 </div>
