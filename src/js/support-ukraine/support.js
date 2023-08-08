@@ -1,17 +1,17 @@
 import charities from './charities';
 
 import Swiper from 'swiper';
-import { Navigation } from 'swiper';
-import 'swiper/swiper.min.css';
+import 'swiper/swiper.scss';
 
 
 const list = document.querySelector('.support-list');
-
 const html = charities.map(makeMarkup).join('');
+const swipeDownBtn = document.querySelector('.swiper-next');
+
+swipeDownBtn.addEventListener('click', onNext);
 
 function makeMarkup({ url, title, img }, index) {
   const digits = (index + 1).toString().padStart(2, '0');
-
   return `
   <li class="swiper-slide">
         <div class="support-item">
@@ -37,12 +37,12 @@ const swiper = new Swiper('.swiper', {
   spaceBetween: 20,
   effect: 'slide',
   breakpoints: {
-    480: {
+    1440: {
       slidesPerView: 6,
     },
   },
-  modules: [Navigation],
-  navigation: {
-    nextEl: '.swiper-next',
-  },
 });
+
+function onNext() {
+  swiper.slideNext(250);
+}
