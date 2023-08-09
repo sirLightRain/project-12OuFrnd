@@ -11,9 +11,9 @@
     });
 })();
 
-const themeSwitch = document.querySelector('theme-switch');
-const currentСolorSwitch = document.querySelector('theme');
-const elementBody = document.querySelector('body')
+const themeSwitch = document.querySelector('theme-switch-header');
+const currentСolorSwitch = localStorage.getItem('theme');
+const elementBody = document.querySelector('body');
 const checkBox = document.querySelector(".theme-checkbox");
 
 if (currentСolorSwitch) {
