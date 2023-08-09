@@ -121,15 +121,15 @@ export function renderingBookBestSellers(data) {
     books.forEach(({ book_image, title, author }) => {
       selectedBookCard += `
       <li class ="book-li">
-    <div class="book-div">
-    <img src="${book_image}" alt="${title}" class="book-img"/>
-    <button class="card-animation">
-    QUICK VIEW
-    </button>
-    </div>
-    <p class="book-title">${title}</p>
-    <p class="book-author">${author}</p>
-  </li>
+        <div class="book-div">
+          <img src="${book_image}" alt="${title}" class="book-img"/>
+          <button class="card-animation">
+            QUICK VIEW
+          </button>
+        </div>
+        <p class="book-title">${title}</p>
+        <p class="book-author">${author}</p>
+      </li>
   `;
     });
   });
@@ -141,8 +141,8 @@ export function renderingBookBestSellers(data) {
 // кнопка See More
 let seeMoreBtn = document.querySelector('.see-more');
 
-// пагінація
 
+// Функція, що зчитує клік по шторці з книги
 function buttonBookCardFunc(evt){
   if(!evt.target.classList.contains("card-animation")){
     return

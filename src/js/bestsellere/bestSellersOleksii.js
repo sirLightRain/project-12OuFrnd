@@ -1,5 +1,4 @@
-
-// //! ============================== для обсервера 
+// //! ============================== для обсервера
 // let options = {
 //   root: null,
 //   rootMargin: '300px',
@@ -15,12 +14,12 @@
 //   entries.forEach(entry => {
 //     if (entry.isIntersecting) {
 //       page += 1;
-      
+
 //     }
 //   });
 // }
 
-// //* Для виводу наступноїсторінки 
+// //* Для виводу наступноїсторінки
 // function loadNextPage() {
 //   // Код для завантаження наступних даних замість пагінації
 //   // Ви можете змінити логіку тут, якщо у вас є інші способи отримання додаткових даних
@@ -37,7 +36,7 @@
 //       console.error('Помилка завантаження наступних даних:', error);
 //     });
 // }
-// //! ==============================  
+// //! ==============================
 
 //* Функція для отримання топових книг з по категоріям
 async function fetchTopBooks(url) {
@@ -78,7 +77,7 @@ async function displayTopBooksByCategory(screenWidth) {
     if (localData) {
       // Якщо дані є в локальному сховищі, беремо їх
       console.log('Дані з локального сховища: ', localData);
-      // Виконуйте далі вашу логіку з використанням даних 
+      // Виконуйте далі вашу логіку з використанням даних
 
       renderData(localData, screenWidth);
     } else {
@@ -101,13 +100,23 @@ async function displayTopBooksByCategory(screenWidth) {
 function createBookMarkup(arr) {
   return arr
     .map(
+      // <li data-id="${_id}" class="js-product">
+      //     <img src="${book_image}" alt="${list_name}" class="img-size" loading="lazy"/>
+
+      //     <h3 class="book-name-style">${title}</h3>
+      //     <p class="author-style">${author}</p>
+      // </li>
       ({ _id, book_image, list_name, author, title }) => `
-        <li data-id="${_id}" class="js-product">
-            <img src="${book_image}" alt="${list_name}" class="img-size" loading="lazy"/>
-            
-            <h3 class="book-name-style">${title}</h3>
-            <p class="author-style">${author}</p>
-        </li>
+      <li class ="book-li">
+      <div class="book-div">
+        <img src="${book_image}" alt="${title}" class="book-img"/>
+        <button class="card-animation">
+          QUICK VIEW
+        </button>
+      </div>
+      <p class="book-title">${title}</p>
+      <p class="book-author">${author}</p>
+    </li>
         `
     )
     .join('');
@@ -115,7 +124,7 @@ function createBookMarkup(arr) {
 
 //* Функція для відмальовки даних
 function renderData(data, screenWidth) {
-  //! ЗМІГИ ДЛЯ ЗЛИТТЯ 
+  //! ЗМІГИ ДЛЯ ЗЛИТТЯ
 
   const bestSellersContainer = document.querySelector('.selected-books-ul');
   const headerCategory = document.querySelector('.header-category');
@@ -135,31 +144,30 @@ function renderData(data, screenWidth) {
   } else {
     booksPerCategory = 5;
   }
-  
+
   // Виведемо перші чотири категорії
   for (let i = 0; i < 4; i += 1) {
     const category = data[i];
     const booksMarkup = createBookMarkup(
       category.books.slice(0, booksPerCategory)
-    )
-    
+    );
+
     // Створюємо div для ВСІЄЇ категорії
     const categoryDiv = document.createElement('div');
     categoryDiv.classList.add('category-container');
-    
-    
+
     // Додаємо назву категорії
     const categoryTitle = document.createElement('h2');
     categoryTitle.classList.add('category-style');
     categoryTitle.textContent = `${category.list_name}`;
     categoryDiv.appendChild(categoryTitle);
-    
+
     // Додаємо список книг
     const booksList = document.createElement('ul');
     booksList.classList.add('books-list');
     booksList.innerHTML = booksMarkup;
     categoryDiv.appendChild(booksList);
-    
+
     // Додаємо кнопку "See more" та призначаємо обробник події
     const seeMoreBtn = document.createElement('button');
     seeMoreBtn.textContent = 'See more';
@@ -167,7 +175,7 @@ function renderData(data, screenWidth) {
     // Обробник подій
     seeMoreBtn.addEventListener('click', () => handleSeeMoreClick(i));
     categoryDiv.appendChild(seeMoreBtn);
-   
+
     // Додаємо div категорії до контейнера
     bestSellersContainer.appendChild(categoryDiv);
   }
