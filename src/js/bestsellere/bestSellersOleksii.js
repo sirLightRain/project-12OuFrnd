@@ -1,42 +1,8 @@
-// //! ============================== для обсервера
-// let options = {
-//   root: null,
-//   rootMargin: '300px',
-//   threshold: 0,
-// };
-
-// const observer = new IntersectionObserver(handlerPagination, options);
-// let page = 1;
-// const jsGuard = document.querySelector('.js-guard');
-
-// function handlerPagination(entries, observer) {
-//   console.log(entries);
-//   entries.forEach(entry => {
-//     if (entry.isIntersecting) {
-//       page += 1;
-
-//     }
-//   });
-// }
-
-// //* Для виводу наступноїсторінки
-// function loadNextPage() {
-//   // Код для завантаження наступних даних замість пагінації
-//   // Ви можете змінити логіку тут, якщо у вас є інші способи отримання додаткових даних
-
-//   fetchTopBooks('https://books-backend.p.goit.global/books/top-books')
-//     .then(data => {
-//       // Оновлюємо дані
-//       updateData(data);
-
-//       // Оновлюємо відображення категорій
-//       renderData(getDataFromLocal(), getScreenWidth());
-//     })
-//     .catch(error => {
-//       console.error('Помилка завантаження наступних даних:', error);
-//     });
-// }
-// //! ==============================
+import { handlerClickAdd, buttonBookCardFunc } from '../selected-category';
+import Notiflix from 'notiflix';
+import { serviceBook } from '../modal';
+import { createBookMarkUp } from '../modal';
+import { closeLightbox } from '../modal';
 
 //* Функція для отримання топових книг з по категоріям
 async function fetchTopBooks(url) {
@@ -98,14 +64,17 @@ async function displayTopBooksByCategory(screenWidth) {
 
 // Функція створення розмітки картки книги
 function createBookMarkup(arr) {
+
+  //* ************************************************* шоб працювалашторка *************************************************
+  const ulSelectedBook = document.querySelector('.selected-books-js');
+  //* ************************************************* шоб працювалашторка *************************************************
+  //* ************************************************* шоб працювала шторка *************************************************
+
+  ulSelectedBook.addEventListener('click', buttonBookCardFunc);
+  //* ************************************************* шоб працювала шторка *************************************************
+
   return arr
     .map(
-      // <li data-id="${_id}" class="js-product">
-      //     <img src="${book_image}" alt="${list_name}" class="img-size" loading="lazy"/>
-
-      //     <h3 class="book-name-style">${title}</h3>
-      //     <p class="author-style">${author}</p>
-      // </li>
       ({ _id, book_image, list_name, author, title }) => `
       <li class ="book-li">
       <div class="book-div">
@@ -120,6 +89,7 @@ function createBookMarkup(arr) {
         `
     )
     .join('');
+
 }
 
 //* Функція для відмальовки даних
@@ -180,6 +150,8 @@ function renderData(data, screenWidth) {
     bestSellersContainer.appendChild(categoryDiv);
   }
 }
+
+//* Функція для кнопки, щоб перейти на відповідну категорію
 
 //* Функція для отримання ширини екрану
 function getScreenWidth() {
