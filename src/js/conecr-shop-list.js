@@ -6,7 +6,7 @@ const wrapContainerShoppinglist = (document.querySelector(
 
 function initLocalStorage() {
   // получаем в перемен данные из localStorage
-  let contentLocalStorage = localStorage.getItem('add');
+  let contentLocalStorage = localStorage.getItem('list');
 
   // если длина массива с данными != 0 - ввызываем функцию отрисовки карточек
   if (contentLocalStorage !== null && contentLocalStorage.length !== 0) {
