@@ -1,4 +1,7 @@
 import Notiflix from 'notiflix';
+import { serviceBook } from './modal';
+import { createBookMarkUp } from './modal';
+import { closeLightbox } from './modal';
 
 // -------------------     3апускаємо спіннер
 const loadingMessage = document.querySelector('.loader');
@@ -20,6 +23,7 @@ const END_OF_RESULTS_MESSAGE =
   "We're sorry, but you've reached the end of this book's category.";
 const ERROR_TIMEOUT = 5000;
 const SUCCESS_TIMEOUT = 2500;
+
 
 export function reportSuccessOrFail(response, refs) {
   resetSearchForm(refs);
@@ -45,6 +49,7 @@ export function reachedLastPage() {
   });
 }
 
+
 // рендеримо одну картку книги &  створюємо список карток з книгами
 export function renderingBookCard(data) {
   const ulSelectedBook = document.querySelector('.selected-books-js');
@@ -57,14 +62,14 @@ export function renderingBookCard(data) {
   lastWord.textContent = `${words[words.length - 1]}`;
 
   console.log(data);
-  data.forEach(({ book_image, title, author }) => {
+  data.forEach(({ book_image, title, author, _id }) => {
     selectedBookCard += `
     <li class ="book-li">
     <div class="book-div">
     <img src="${book_image}" alt="${title}" class="book-img"/>
-    <button class="card-animation">
+    <a href="https://books-backend.p.goit.global/books/${_id}" class="card-animation">
     QUICK VIEW
-    </button>
+    </a>
     </div>
     <p class="book-title">${title}</p>
     <p class="book-author">${author}</p>
@@ -72,6 +77,7 @@ export function renderingBookCard(data) {
   `;
   });
   ulSelectedBook.innerHTML = selectedBookCard;
+  ulSelectedBook.addEventListener("click", buttonBookCardFunc)
 }
 
 export function renderingBookCardAll(data) {
@@ -83,14 +89,14 @@ export function renderingBookCardAll(data) {
   let selectedBookCard = ``;
   console.log(data);
   data.forEach(({ books }) => {
-    books.forEach(({ book_image, title, author }) => {
+    books.forEach(({ book_image, title, author, _id }) => {
       selectedBookCard += `
       <li class ="book-li">
     <div class="book-div">
     <img src="${book_image}" alt="${title}" class="book-img"/>
-    <button class="card-animation">
+    <a href="https://books-backend.p.goit.global/books/${_id}" class="card-animation">
     QUICK VIEW
-    </button>
+    </a>
     </div>
     <p class="book-title">${title}</p>
     <p class="book-author">${author}</p>
@@ -99,6 +105,7 @@ export function renderingBookCardAll(data) {
     });
   });
   ulSelectedBook.innerHTML = selectedBookCard;
+ulSelectedBook.addEventListener("click", buttonBookCardFunc)
 }
 
 //! ========================================================================= 07.08.2023 
@@ -135,3 +142,42 @@ export function renderingBookBestSellers(data) {
 let seeMoreBtn = document.querySelector('.see-more');
 
 // пагінація
+
+function buttonBookCardFunc(evt){
+  if(!evt.target.classList.contains("card-animation")){
+    return
+  }
+  evt.preventDefault() 
+  document.body.classList.add('disable-scroll');
+  const modalElDiv = document.querySelector(".modal-js");
+  const bookUrl = evt.target.href;
+  console.dir(bookUrl)
+  serviceBook(bookUrl)
+  .then((data) => {
+    
+    createBookMarkUp(data)
+    const btnClose = document.querySelector('.modal-close');
+    btnClose.addEventListener('click', closeLightbox); 
+    const btnAdd = document.querySelector('.add-to-cart-btn');
+    btnAdd.addEventListener('click', handlerClickAdd);
+    })
+    .catch(err => console.log(err))
+    
+}
+
+function handlerClickAdd(evt) {
+let arrBookLS =  JSON.parse(localStorage.getItem('list')) || [];
+// console.log(arrBookLS)
+  closeLightbox()
+  // console.dir(evt.target.previousSibling.parentElement.dataset.id) 
+  const idChangeBook = `https://books-backend.p.goit.global/books/${evt.target.previousSibling.parentElement.dataset.id }`;
+  if(!arrBookLS.includes(idChangeBook)){
+    arrBookLS.push(idChangeBook);
+    evt.currentTarget.textContent = "REMOVE FROM THE SHOPPING LIST"
+  }
+  else{
+    arrBookLS.pop(idChangeBook);
+    evt.currentTarget.textContent = "ADD TO SHOPPING LIST"
+  }
+  localStorage.setItem('list', JSON.stringify(arrBookLS))
+}

@@ -1,78 +1,43 @@
-@media screen and (max-width: 375px) {
-    .div-all-categories{
-        padding-right: 20px;
-        height: 472px;
-        width: 356px;
-        overflow: auto;
-    }
+// @media screen and (max-width: 375px) {
+//     .div-all-categories{
+//         padding-right: 20px;
+//         height: 472px;
+//         width: 100%;
+//         overflow: auto;
+//     }
 
-    .categor_item.all_catecor{
-        text-transform: uppercase;
-    }
+//     .categor_item.all_catecor{
+//         text-transform: uppercase;
+//     }
 
-    .categor_item:last-child{
-        margin-bottom: 0;
-    }
+//     .categor_item:last-child{
+//         margin-bottom: 0;
+//     }
 
-    .categor_item{
-        margin-bottom: 32px;
-    }
-    .categor_link{
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 1.33;
-        font-family: 'DM Sans';
-        color: rgba(17, 17, 17, 0.60);
-    }
+//     .categor_item{
+//         margin-bottom: 32px;
+//     }
+//     .categor_link{
+//         font-size: 18px;
+//         font-weight: 400;
+//         line-height: 1.33;
+//         font-family: 'DM Sans';
+//         color: rgba(17, 17, 17, 0.60);
+//     }
 
-    .categor_link:hover{
-        color: var(--violet);
-        font-weight: 700;
-    }
-}
-
-
-@media screen and (min-width: 375px){
-        .div-all-categories {
-            padding-right: 20px;
-            height: 472px;
-            width: 356px;
-            overflow: auto;
-        }
-    
-        .categor_item.all_catecor {
-            text-transform: uppercase;
-        }
-    
-        .categor_item:last-child {
-            margin-bottom: 0;
-        }
-    
-        .categor_item {
-            cursor: pointer;
-            margin-bottom: 32px;
-        }
-    
-        .categor_link {
-            font-size: 18px;
-            font-weight: 400;
-            line-height: 1.33;
-            font-family: 'DM Sans';
-            color: rgba(17, 17, 17, 0.60);
-        }
-    
-        .categor_link:hover {
-            color: var(--violet);
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-}
+//     .categor_link:hover{
+//         color: var(--violet);
+//         font-weight: 700;
+//     }
+// }
 
 
-
-// @media screen and (min-width: 768px){
+// @media screen and (min-width: 375px){
 //         .div-all-categories {
 //             padding-right: 20px;
+//             height: 472px;
+//             width: 337px;
+//             overflow: auto;
 //         }
     
 //         .categor_item.all_catecor {
@@ -84,6 +49,7 @@
 //         }
     
 //         .categor_item {
+//             cursor: pointer;
 //             margin-bottom: 32px;
 //         }
     
@@ -103,68 +69,102 @@
 // }
 
 
-// @media screen and (min-width: 1440px) {
-//         .div-all-categories {
-//         padding-right: 20px;
-//         }
+
+// // @media screen and (min-width: 768px){
+// //         .div-all-categories {
+// //             padding-right: 20px;
+// //         }
+    
+// //         .categor_item.all_catecor {
+// //             text-transform: uppercase;
+// //         }
+    
+// //         .categor_item:last-child {
+// //             margin-bottom: 0;
+// //         }
+    
+// //         .categor_item {
+// //             margin-bottom: 32px;
+// //         }
+    
+// //         .categor_link {
+// //             font-size: 18px;
+// //             font-weight: 400;
+// //             line-height: 1.33;
+// //             font-family: 'DM Sans';
+// //             color: rgba(17, 17, 17, 0.60);
+// //         }
+    
+// //         .categor_link:hover {
+// //             color: var(--violet);
+// //             font-weight: 700;
+// //             text-transform: uppercase;
+// //         }
+// // }
+
+
+// // @media screen and (min-width: 1440px) {
+// //         .div-all-categories {
+// //         padding-right: 20px;
+// //         }
             
-//         .categor_item.all_catecor {
-//         text-transform: uppercase;
-//         }
+// //         .categor_item.all_catecor {
+// //         text-transform: uppercase;
+// //         }
             
-//         .categor_item:last-child {
-//         margin-bottom: 0;
-//         }
+// //         .categor_item:last-child {
+// //         margin-bottom: 0;
+// //         }
             
-//         .categor_item {
-//         margin-bottom: 32px;
-//         }
+// //         .categor_item {
+// //         margin-bottom: 32px;
+// //         }
             
-//         .categor_link {
-//         font-size: 18px;
-//         font-weight: 400;
-//         line-height: 1.33;
-//         font-family: 'DM Sans';
-//         color: rgba(17, 17, 17, 0.60);
-//         }
+// //         .categor_link {
+// //         font-size: 18px;
+// //         font-weight: 400;
+// //         line-height: 1.33;
+// //         font-family: 'DM Sans';
+// //         color: rgba(17, 17, 17, 0.60);
+// //         }
             
-//         .categor_link:hover {
-//         color: var(--violet);
-//         font-weight: 700;
-//         text-transform: uppercase;
-//         }
-//         }
+// //         .categor_link:hover {
+// //         color: var(--violet);
+// //         font-weight: 700;
+// //         text-transform: uppercase;
+// //         }
+// //         }
             
             
             
-// @media screen and (min-width: 768px) {
-//         .div-all-categories {
-//         padding-right: 20px;
-//         }
+// // @media screen and (min-width: 768px) {
+// //         .div-all-categories {
+// //         padding-right: 20px;
+// //         }
             
-//         .categor_item.all_catecor {
-//         text-transform: uppercase;
-//         }
+// //         .categor_item.all_catecor {
+// //         text-transform: uppercase;
+// //         }
             
-//         .categor_item:last-child {
-//         margin-bottom: 0;
-//         }
+// //         .categor_item:last-child {
+// //         margin-bottom: 0;
+// //         }
             
-//         .categor_item {
-//         margin-bottom: 32px;
-//         }
+// //         .categor_item {
+// //         margin-bottom: 32px;
+// //         }
             
-//         .categor_link {
-//         font-size: 18px;
-//         font-weight: 400;
-//         line-height: 1.33;
-//         font-family: 'DM Sans';
-//         color: rgba(17, 17, 17, 0.60);
-//         }
+// //         .categor_link {
+// //         font-size: 18px;
+// //         font-weight: 400;
+// //         line-height: 1.33;
+// //         font-family: 'DM Sans';
+// //         color: rgba(17, 17, 17, 0.60);
+// //         }
             
-//         .categor_link:hover {
-//         color: var(--violet);
-//         font-weight: 700;
-//         text-transform: uppercase;
-//         }
-// }
+// //         .categor_link:hover {
+// //         color: var(--violet);
+// //         font-weight: 700;
+// //         text-transform: uppercase;
+// //         }
+// // }
