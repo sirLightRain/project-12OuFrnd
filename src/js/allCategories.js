@@ -2,6 +2,11 @@ import { renderingBookCard } from './selected-category';
 import { renderingBookCardAll } from './selected-category';
 import { renderingBookBestSellers } from './selected-category';
 import Notiflix from 'notiflix';
+
+//! ================
+import { displayTopBooksByCategory } from './bestsellere/bestSellersOleksii'; 
+//! ================ 
+
 const listOfAllCategories = document.querySelector('.list-of-all-categories');
 
 // load All Categories
@@ -39,7 +44,8 @@ function displayCategoryList(data) {
 
   document
     .querySelector('.all_catecor')
-    .addEventListener('click', loadTopBooks);
+    // .addEventListener('click', loadTopBooks);
+    .addEventListener('click', displayTopBooksByCategory);
 }
 
 // load Top Books

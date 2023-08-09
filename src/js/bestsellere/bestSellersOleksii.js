@@ -114,7 +114,9 @@ function createBookMarkup(arr) {
 
 //* Функція для відмальовки даних
 function renderData(data, screenWidth) {
-  const bestSellersContainer = document.querySelector('.best-sellers-books');
+  //! ЗМІГИ ДЛЯ ЗЛИТТЯ 
+  // const bestSellersContainer = document.querySelector('.best-sellers-books');
+  const bestSellersContainer = document.querySelector('.selected-books-ul');
 
   // Очистимо контейнер перед початком виводу
   bestSellersContainer.innerHTML = '';
@@ -142,10 +144,11 @@ function renderData(data, screenWidth) {
     categoryDiv.classList.add('category-container');
     
     // Додаємо назву категорії
-    const categoryTitle = document.createElement('h2');
-    categoryTitle.classList.add('category-style');
-    categoryTitle.textContent = `Category: ${category.list_name}`;
-    categoryDiv.appendChild(categoryTitle);
+    //! ЗМІНИ ДЛЯ ЗЛИТТЯ 
+    // const categoryTitle = document.createElement('h2');
+    // categoryTitle.classList.add('category-style');
+    // categoryTitle.textContent = `Category: ${category.list_name}`;
+    // categoryDiv.appendChild(categoryTitle);
     
     // Додаємо список книг
     const booksList = document.createElement('ul');
