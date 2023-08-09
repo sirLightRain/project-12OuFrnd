@@ -55,8 +55,6 @@ async function loadTopBooks() {
     method: 'GET',
   });
   const responceResult = await responce.json();
-  // Notiflix.Report.success('Title', 'Message', 'Button Text');
-
   console.log('Top books: ', responceResult);
   if (responceResult) {
     renderingBookCardAll(responceResult);
