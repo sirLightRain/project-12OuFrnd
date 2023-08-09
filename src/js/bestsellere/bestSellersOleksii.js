@@ -145,10 +145,10 @@ function renderData(data, screenWidth) {
     
     // Додаємо назву категорії
     //! ЗМІНИ ДЛЯ ЗЛИТТЯ 
-    // const categoryTitle = document.createElement('h2');
-    // categoryTitle.classList.add('category-style');
-    // categoryTitle.textContent = `Category: ${category.list_name}`;
-    // categoryDiv.appendChild(categoryTitle);
+    const categoryTitle = document.createElement('h2');
+    categoryTitle.classList.add('category-style');
+    categoryTitle.textContent = `${category.list_name}`;
+    categoryDiv.appendChild(categoryTitle);
     
     // Додаємо список книг
     const booksList = document.createElement('ul');

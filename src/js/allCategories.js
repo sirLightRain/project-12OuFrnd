@@ -80,5 +80,5 @@ async function selectedCategory(event) {
 
 if (listOfAllCategories) {
   loadAllCategories();
-  loadTopBooks();
+  displayTopBooksByCategory();
 }
