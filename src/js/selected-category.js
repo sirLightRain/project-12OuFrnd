@@ -133,9 +133,9 @@ function buttonBookCardFunc(evt){
 
 function handlerClickAdd(evt) {
 let arrBookLS =  JSON.parse(localStorage.getItem('list')) || [];
-console.log(arrBookLS)
+// console.log(arrBookLS)
   closeLightbox()
-  console.dir(evt.target.previousSibling.parentElement.dataset.id) 
+  // console.dir(evt.target.previousSibling.parentElement.dataset.id) 
   const idChangeBook = `https://books-backend.p.goit.global/books/${evt.target.previousSibling.parentElement.dataset.id }`;
   if(!arrBookLS.includes(idChangeBook)){
     arrBookLS.push(idChangeBook);
