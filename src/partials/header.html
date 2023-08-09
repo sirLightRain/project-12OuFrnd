@@ -11,55 +11,81 @@
             </a>
             <ul class="box-nav-list mobile-nav">
                 <li>
-                    <a class="header-item home-link" href="/src/index.html" class="current-home home-link">HOME</a>
+                    <a class="header-item home-link" href="/src/index.html">HOME</a>
                 </li>
-                <li>
-                    <a class="header-item shopping-link-menu" href="./shop-list.html" class="current-shopping shopping-link">
-                        
+                <li class="spopping-item">
+                    <a class="header-item shopping-link-menu" href="">
                         SHOPPING  LIST
+                        <svg class="cart" width="20" height="20">
+                            <use href="./images/sprite.svg#uil_cart-1-1"></use>
+                        </svg>
                     </a>
                 </li>
             </ul>
+            <div class="desktop-nav">
+                <a href="/src/index.html" class="desktop-logo-link">
+                    <svg class="logo-svg" width="24" height="24">
+                        <use href="./images/sprite.svg#logo-6-1"></use>
+                    </svg>
+                    <svg class="logo-text-svg" width="77" height="28">
+                        <use href="./images/sprite.svg#Bookshelf-1"></use>
+                    </svg>
+                </a>
+                <ul class="box-nav-list desktop-list">
+                    <li>
+                        <a class="header-item home-link" href="/src/index.html">HOME</a>
+                    </li>
+                    <li class="spopping-item">
+                        <a class="header-item shopping-link-menu" href="">
+                            SHOPPING LIST
+                            <svg class="cart" width="20" height="20">
+                                <use href="./images/sprite.svg#uil_cart-1-1"></use>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <div class="mobile-panel">
                 <label class="switch" id="theme-switch-header">
                     <input type="checkbox" class="theme-checkbox">
                     <span class="slider"></span>
                 </label>
                 <button type="button" class="menu-button" aria-expanded="false" aria-controls="menu-container" data-menu-button>
-                    <svg aria-label="mobile menu-button" width="28" height="28">
+                    <svg aria-label="mobile menu-button" width="28" height="28" class="menu-button-svg">
                         <use class="icon-close-menu" href="./images/sprite.svg#x-close"></use>
                         <use class="icon-menu" href="./images/sprite.svg#align-left"></use>
                     </svg>
                 </button>
-                <button class="user">
-                    <svg class="icon-user" width="37" hight="37">
-                        <use class="user" href="./images/sprite.svg#user-3-1"></use>
-                    </svg>
-                    Stephen
-                    <svg width="23" hight="26">
-                        <use class="user" href="./images/sprite.svg#fi-ss-caret-down-5-1"></use>
+                <button class="user" type="button">
+                    Sing up
+                    <svg class="arrow-right-icon" width="20" hight="20">
+                        <use class=".arrow-right-icon" href="./images/sprite.svg#arrow-right"></use>
                     </svg>
                 </button>
             </div>
             <div class="menu-container" id="menu-container" data-menu>
-                <button class="signup" type="button">
-                    Stephen
-                    <svg class="arrow-right-icon" width="20" hight="20">
-                        <use class="icon-menu" href="./images/sprite.svg#arrow-right"></use>
-                    </svg>
-                </button>
                 <ul class="mobile-menu">
                     <ul class="box-nav-list">
-                        <li>
-                            <a class="header-item home-link-menu" href="/src/index.html" class="current-home home-link-menu">HOME</a>
+                        <li class="mobile-home-list">
+                            <a class="home-link" href="/src/index.html">HOME</a>
                         </li>
-                        <li>
-                            <a class="header-item shopping-link-menu" href="" class="current-shopping shopping-link-menu">
+                        <li class="mobile-shoping-list">
+                            <a class="header-item shopping-link-menu" href="">
                                 SHOPPING LIST
+                                <svg class="mobile-cart" width="20" height="20">
+                                    <use href="./images/sprite.svg#uil_cart-1-1"></use>
+                                </svg>
                             </a>
                         </li>
                     </ul>
                 </ul>
+                <button class="authorization" type="button">
+                    <p class="authorization-text">Log in</p>
+                    <svg class="arrow-right-icon" width="20" hight="20">
+                        <use class=".arrow-right-icon" href="./images/sprite.svg#arrow-right"></use>
+                    </svg>
+                </button>
+                <div class="image"></div>
             </div>   
         </nav>
     </div>   
