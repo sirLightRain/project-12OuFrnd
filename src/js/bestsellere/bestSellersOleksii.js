@@ -78,7 +78,8 @@ async function displayTopBooksByCategory(screenWidth) {
     if (localData) {
       // Якщо дані є в локальному сховищі, беремо їх
       console.log('Дані з локального сховища: ', localData);
-      // Виконуйте далі вашу логіку з використанням даних
+      // Виконуйте далі вашу логіку з використанням даних 
+
       renderData(localData, screenWidth);
     } else {
       // Якщо дані відсутні в локальному сховищі, звертайтесь до сервера
@@ -137,14 +138,25 @@ function renderData(data, screenWidth) {
     const booksMarkup = createBookMarkup(
       category.books.slice(0, booksPerCategory)
     );
-
     
-    // Створюємо div для категорії
+    //! ЗМІНИ ДЛЯ ЗЛИТТЯ ... ТАК НЕКОНАЄ
+    // const firstW = document.querySelector('header-category');
+    // firstW.textContent = 'Best Sellesr ';
+
+    // const lastW = document.querySelector('header-last-word');
+    // lastW.textContent = ' Books';
+    //! ЗМІНИ ДЛЯ ЗЛИТТЯ 
+
+    // const pageTitle = document.createElement(h1);
+    // pageTitle.textContent = 'Best Sellesr Books';
+    // categoryDiv.appendChild(pageTitle);
+    
+    // Створюємо div для ВСІЄЇ категорії
     const categoryDiv = document.createElement('div');
     categoryDiv.classList.add('category-container');
     
+    
     // Додаємо назву категорії
-    //! ЗМІНИ ДЛЯ ЗЛИТТЯ 
     const categoryTitle = document.createElement('h2');
     categoryTitle.classList.add('category-style');
     categoryTitle.textContent = `${category.list_name}`;
