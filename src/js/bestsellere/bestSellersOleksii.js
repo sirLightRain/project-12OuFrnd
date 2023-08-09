@@ -116,8 +116,12 @@ function createBookMarkup(arr) {
 //* Функція для відмальовки даних
 function renderData(data, screenWidth) {
   //! ЗМІГИ ДЛЯ ЗЛИТТЯ 
-  // const bestSellersContainer = document.querySelector('.best-sellers-books');
+
   const bestSellersContainer = document.querySelector('.selected-books-ul');
+  const headerCategory = document.querySelector('.header-category');
+  const lastWord = document.querySelector('.header-last-word');
+  headerCategory.textContent = `Best Sellers `;
+  lastWord.textContent = ` Books`;
 
   // Очистимо контейнер перед початком виводу
   bestSellersContainer.innerHTML = '';
@@ -137,19 +141,7 @@ function renderData(data, screenWidth) {
     const category = data[i];
     const booksMarkup = createBookMarkup(
       category.books.slice(0, booksPerCategory)
-    );
-    
-    //! ЗМІНИ ДЛЯ ЗЛИТТЯ ... ТАК НЕКОНАЄ
-    // const firstW = document.querySelector('header-category');
-    // firstW.textContent = 'Best Sellesr ';
-
-    // const lastW = document.querySelector('header-last-word');
-    // lastW.textContent = ' Books';
-    //! ЗМІНИ ДЛЯ ЗЛИТТЯ 
-
-    // const pageTitle = document.createElement(h1);
-    // pageTitle.textContent = 'Best Sellesr Books';
-    // categoryDiv.appendChild(pageTitle);
+    )
     
     // Створюємо div для ВСІЄЇ категорії
     const categoryDiv = document.createElement('div');
@@ -179,11 +171,6 @@ function renderData(data, screenWidth) {
     // Додаємо div категорії до контейнера
     bestSellersContainer.appendChild(categoryDiv);
   }
-  // //! ======================== Підключаємо обсервер
-  
-  // observer.observe(jsGuard);
-  
-  // //! ======================== 
 }
 
 //* Функція для отримання ширини екрану
