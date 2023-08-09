@@ -21,34 +21,14 @@ export async function serviceBook(bookUrl) {
 
 const bookList = document.querySelector(".books-list");
 
-// //Ця функція додає розмітку в ul
-// function createBookList() {
-//     const listData = JSON.parse(localStorage.getItem('list'));
-//     //console.log(typeof listData);
-//     listData.forEach(obj => {
-//         bookList.insertAdjacentHTML('beforeend', createMarkUp(obj.books))
-//     });
-// }
-
-// createBookList();
-
-// //Ця функція додаткова, вона видає макет книг, щоб відбувався клік на книгу та відкривалась для кожної книги модалка з відповідною інфою  
-// function createMarkUp(arr) {
-//     return arr.map(({ _id , book_image, list_name, author, title}) => `
-//         <li data-id="${_id}" class="js-product">
-//             <img src="${book_image}" alt="${list_name}" class="img-size" loading="lazy"/>
-//             <h3 class="book-name-style">${title}</h3>
-//             <p class="author-style">${author}</p>
-//         </li>
-//     `).join('');
-// }
-
 //Ця функкція відмальовує саму модалку
 let currentLightboxInstance = null;
 
 export function createBookMarkUp({ _id, book_image, list_name, author, title, description,amazon_product_url,buy_links} = {}, url) {
-    const books = JSON.parse(localStorage.getItem('add')) || [];
-    const isInList = books.some(value => value == _id);
+    const books = JSON.parse(localStorage.getItem('list')) || [];
+    console.log(books)
+    const isInList = `https://books-backend.p.goit.global/books/${_id}`;
+    console.dir(`${isInList}`)
     const buyLi = buy_links
     const instance = basicLightbox.create(`<div class="modal" data-id="${_id}">
                 <button class="modal-close">
@@ -64,63 +44,14 @@ export function createBookMarkUp({ _id, book_image, list_name, author, title, de
                         <li><a href="${buyLi[4].url}" target="_blank" class="shop-link"><img src="${booksImg}" width="38" height="36" alt="books" class="shop-img"/></a></li>
                     </ul>
                 </div>
-                <button class="add-to-cart-btn">${isInList ? 'REMOVE FROM THE SHOPPING LIST' : 'ADD TO SHOPPING LIST'}</button>
-                <p class="text-under-btn">${isInList ? 'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.' : ''}</p>
+                <button class="add-to-cart-btn">${books.includes(`${isInList}`)?'REMOVE FROM THE SHOPPING LIST':'ADD TO SHOPPING LIST'}</button>
+                <p class="text-under-btn">${books.includes(`${isInList}`)? 'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.' : ''}</p>
             </div>`)
             currentLightboxInstance = instance;
             instance.show();
             return instance
             
 }
-
-// 
-
-
-
-// function handlerBook(evt) {
-//     // const bookItem = evt.target.closest('.js-product');
-//     // const bookId = bookItem.dataset.id; //отримання id
-
-//     // const obj = findBookItem(bookId); //отримуємо об'єкт зі знайденим id
-//     // //console.log(obj);
-//     // //console.log(obj.buy_links)
-
-//     // const instance = basicLightbox.create(createBookMarkUp(obj, url));
-//     // instance.show(); //показує модалку
-
-    // currentLightboxInstance = instance;
-
-//     const btnClose = document.querySelector('.modal-close');
-//     btnClose.addEventListener('click', closeLightbox);
-//     const modalContainer = document.querySelector(".basicLightbox");
-//     modalContainer.addEventListener('click', () => {
-//         document.body.classList.remove('disable-scroll');
-//     })
-
-//     const btnAdd = document.querySelector('.add-to-cart-btn');
-
-//     btnAdd.addEventListener('click', handlerClickAdd);
-//     function handlerClickAdd(idBooks) {
-//         closeLightbox();
-//         const books = JSON.parse(localStorage.getItem('add')) || [];
-//         const isInList = books.some(value => value == bookId);
-//         console.log(isInList);
-//         if (isInList) {
-//             btnAdd.textContent = "REMOVE FROM THE SHOPPING LIST";
-//             const updatedBooks = books.filter(value => value != bookId);
-//             localStorage.setItem('add', JSON.stringify(updatedBooks));
-//         } else {
-//             btnAdd.textContent = "ADD TO SHOPPING LIST";
-//             books.push(bookId);
-//             localStorage.setItem('add', JSON.stringify(books));
-//         }
-//     }
-
-//     document.body.classList.add('disable-scroll');
-// }
-
-
-
 
 function findBookItem(item) {
     const data = JSON.parse(localStorage.getItem('list'));
@@ -138,7 +69,6 @@ export function closeLightbox() {
         currentLightboxInstance.close();
         currentLightboxInstance = null;
     }
-
     document.body.classList.remove('disable-scroll')
 }
 
