@@ -12,7 +12,7 @@
   });
 })();
 
-const themeSwitch = document.querySelector('theme-switch-header');
+const themeSwitch = document.getElementById('theme-switch-header');
 const currentСolorSwitch = localStorage.getItem('theme');
 const elementBody = document.querySelector('body');
 const checkBox = document.querySelector(".theme-checkbox");
@@ -37,5 +37,4 @@ function switchTheme(e) {
     localStorage.setItem('theme', 'theme-light');
   }
 }
-//! ===================== тимчасовий блок через помилку в консолі 
-// themeSwitch.addEventListener('change,switch,false');
+themeSwitch.addEventListener('change',switchTheme,false);
