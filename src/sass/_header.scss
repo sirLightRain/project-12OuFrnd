@@ -1,7 +1,15 @@
-// .container {
-//     // background: var(--violet);
-// }
-
+body {
+    background-color: white;
+    color: #111;
+    margin: 0;
+    font-family: DM Sans, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.9;
+}
+.black-theme {
+    background-color: #000000;
+}
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -32,7 +40,6 @@
 .nav-logo {
     display: flex;
     width: 100%;
-    justify-content: space-between;
 }
 .desktop-nav {
     display: none;
@@ -60,6 +67,7 @@
     width: 109px;
     height: 28px;
     gap: 8px;
+    margin-right: auto;
 }
 .logo-text-svg {
     fill: #000000
@@ -75,6 +83,7 @@
 .mobile-cart {
     fill: #FFF;
 }
+
 .mobile-panel {
     display: flex;
     justify-content: space-between;
@@ -167,7 +176,7 @@ input:checked+.slider:before {
     display: none;
     position: fixed;
     height: 100vh;
-    z-index: -2;
+    z-index: 2;
     background-image: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 18.03%, #FFF 100%);
 }
 .menu-container.is-open {
@@ -288,8 +297,8 @@ input:checked+.slider:before {
         display: flex;
         align-items: center;
     }
-    .header-box {
-        padding: 0;
+    .logo-link {
+        margin-right: 40px;
     }
     .header-item {
         color: #111;
@@ -300,10 +309,6 @@ input:checked+.slider:before {
         line-height: 18px;
         letter-spacing: -0.56px;
         text-transform: uppercase;
-    }
-    .container {
-        max-width: 768px;
-        padding: 22px 32px;
     }
     .menu-button {
         display: none;
@@ -326,11 +331,12 @@ input:checked+.slider:before {
         display: flex;
         align-items: center;
     }
-    .box-nav-list {
+    .box-nav-list.mobile-nav {
         display: flex;
         align-items: center;
         gap: 24px;
         color: white;
+        margin-right: auto;
     }
     
     .signup {
@@ -364,6 +370,9 @@ input:checked+.slider:before {
     .mobile-panel {
         gap: 24px;
     }
+    .menu-container {
+        display: none;
+    }
 }
 @media screen and (min-width:1280px) {
     .container {
@@ -372,17 +381,11 @@ input:checked+.slider:before {
         margin-left: auto;
         padding: 14px 24px;
     }
-    .logo-link {
-        display: none;
-    }
-    .box-nav-list.mobile-nav {
-        display: none;
-    } 
     .desktop-nav {
         display: flex;
         align-items: center;
     } 
-    .desktop-logo-link {
+    .logo-link {
         display: flex;
         align-items: center;
         margin-right: 76px;
