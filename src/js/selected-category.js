@@ -120,6 +120,7 @@ function buttonBookCardFunc(evt){
   console.dir(bookUrl)
   serviceBook(bookUrl)
   .then((data) => {
+    
     createBookMarkUp(data)
     const btnClose = document.querySelector('.modal-close');
     btnClose.addEventListener('click', closeLightbox); 
@@ -129,8 +130,10 @@ function buttonBookCardFunc(evt){
     .catch(err => console.log(err))
     
 }
-let arrBookLS = []
+
 function handlerClickAdd(evt) {
+let arrBookLS =  JSON.parse(localStorage.getItem('list')) || [];
+console.log(arrBookLS)
   closeLightbox()
   console.dir(evt.target.previousSibling.parentElement.dataset.id) 
   const idChangeBook = `https://books-backend.p.goit.global/books/${evt.target.previousSibling.parentElement.dataset.id }`;
