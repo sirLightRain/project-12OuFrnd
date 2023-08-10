@@ -1,4 +1,8 @@
-import { handlerClickAdd, buttonBookCardFunc } from '../selected-category';
+import {
+  handlerClickAdd,
+  buttonBookCardFunc,
+  renderingBookCardAll,
+} from '../selected-category';
 import Notiflix from 'notiflix';
 import { serviceBook } from '../modal';
 import { createBookMarkUp } from '../modal';
@@ -64,7 +68,6 @@ async function displayTopBooksByCategory(screenWidth) {
 
 // Функція створення розмітки картки книги
 function createBookMarkup(arr) {
-
   //* ************************************************* шоб працювалашторка *************************************************
   const ulSelectedBook = document.querySelector('.selected-books-js');
   //* ************************************************* шоб працювалашторка *************************************************
@@ -89,7 +92,6 @@ function createBookMarkup(arr) {
         `
     )
     .join('');
-
 }
 
 //* Функція для відмальовки даних
@@ -138,12 +140,16 @@ function renderData(data, screenWidth) {
     booksList.innerHTML = booksMarkup;
     categoryDiv.appendChild(booksList);
 
-    // Додаємо кнопку "See more" та призначаємо обробник події
+    //! Додаємо кнопку "See more" та призначаємо обробник події
     const seeMoreBtn = document.createElement('button');
     seeMoreBtn.textContent = 'See more';
     seeMoreBtn.classList.add('see-more-btn');
-    // Обробник подій
-    seeMoreBtn.addEventListener('click', () => handleSeeMoreClick(i));
+
+    seeMoreBtn.setAttribute('data-category', category.list_name);
+
+    //! Обробник подій
+    seeMoreBtn.addEventListener('click', handleSeeMoreClick);
+
     categoryDiv.appendChild(seeMoreBtn);
 
     // Додаємо div категорії до контейнера
@@ -151,7 +157,35 @@ function renderData(data, screenWidth) {
   }
 }
 
-//* Функція для кнопки, щоб перейти на відповідну категорію
+//! Функція для кнопки, щоб перейти на відповідну категорію
+function handleSeeMoreClick(event) {
+  const category = event.currentTarget.getAttribute('data-category');
+
+  // Отримуємо дані з локального сховища
+  const localData = getDataFromLocal();
+
+  if (localData) {
+    console.log('Дані з локального сховища: ', localData);
+
+    // Знаходимо відповідну категорію
+    const selectedCategory = localData.find(item => item.list_name === category);
+    renderingBookCardAll([selectedCategory]);
+
+  //   if (selectedCategory) {
+  //     // Використовуйте відповідну функцію відмальовки залежно від категорії
+  //     if (category === 'Best Sellers') {
+  //       renderingBookBestSellers([selectedCategory]);
+  //     } else if (category === 'All categories') {
+  //       renderingBookCardAll([selectedCategory]);
+  //     } else {
+  //       renderingBookCard([selectedCategory]);
+  //     }
+  //   }
+  // } else {
+  //   // Ваша логіка для отримання та відмальовування даних з сервера
+  }
+}
+
 
 //* Функція для отримання ширини екрану
 function getScreenWidth() {
