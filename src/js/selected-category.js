@@ -1,6 +1,6 @@
 import Notiflix from 'notiflix';
 
-// -------------------     3апускаємо спіннер
+// ----------     3апускаємо спіннер
 const loadingMessage = document.querySelector('.loader');
 
 // show loader
@@ -13,8 +13,8 @@ export function hideLoadingMessage() {
 }
 
 // повідомлення про кількість книг / відсутність книг
-const NO_BOOKS_MESSAGE =
-  'Sorry, there are temporarily no books in this category. Please try again.';
+// const NO_BOOKS_MESSAGE =
+//   'Sorry, there are temporarily no books in this category. Please try again.';
 const SUCCESS_MESSAGE = 'Good choise! We found';
 const END_OF_RESULTS_MESSAGE =
   "We're sorry, but you've reached the end of this book's category.";
@@ -22,7 +22,6 @@ const ERROR_TIMEOUT = 5000;
 const SUCCESS_TIMEOUT = 2500;
 
 export function reportSuccessOrFail(response, refs) {
-  resetSearchForm(refs);
   if (response.data.title === 0) {
     Notiflix.Report.failure(NO_IMAGES_MESSAGE);
   } else {
@@ -32,6 +31,7 @@ export function reportSuccessOrFail(response, refs) {
     });
   }
 }
+
 export function reportError(error, refs) {
   resetSearchForm(refs);
   Notiflix.Report.failure(error.message, {
