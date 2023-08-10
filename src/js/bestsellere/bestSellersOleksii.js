@@ -1,13 +1,4 @@
-import {
-  handlerClickAdd,
-  buttonBookCardFunc,
-  renderingBookCard,
-  renderingBookCardAll,
-} from '../selected-category';
-import Notiflix from 'notiflix';
-import { serviceBook } from '../modal';
-import { createBookMarkUp } from '../modal';
-import { closeLightbox } from '../modal';
+import { renderingBookCard } from '../selected-category';
 
 //* Функція для отримання топових книг з по категоріям
 async function fetchTopBooks(url) {
@@ -170,10 +161,7 @@ async function handleSeeMoreClick(event) {
       const url = `https://books-backend.p.goit.global/books/category?category=${selectedCategory.list_name}`;
       const data = await fetchTopBooks(url);
 
-      console.log(
-        'selectedCategory: =>',
-        data
-      );
+      console.log('selectedCategory: =>', data);
       // Виконуємо відмальовку книг з отриманими даними
       renderingBookCard(data);
     } catch (error) {
