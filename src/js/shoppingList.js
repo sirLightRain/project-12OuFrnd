@@ -71,9 +71,23 @@ function renderCard(a) {
   });
 }
 
+function deleteCard() {
+  cardContainer.addEventListener('click', e => {
+    const currentCard = e.target.parentNode.parentNode.parentNode;
+
+    if (e.target.tagName === 'BUTTON') {
+      currentCard.remove();
+    } else if (e.target.parentNode.tagName === 'BUTTON') {
+      currentCard.parentNode.remove();
+    }
+  });
+}
+
 export async function makeCard(data) {
   const cardsArray = acceptLink(data);
   const card = await renderCard(cardsArray);
 
   cardContainer.insertAdjacentHTML('afterbegin', card);
+
+  deleteCard();
 }
