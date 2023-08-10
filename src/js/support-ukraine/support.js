@@ -1,5 +1,4 @@
 import charities from './charities';
-
 import Swiper from 'swiper';
 import 'swiper/swiper.scss';
 
@@ -31,9 +30,9 @@ const str = charities.map((element, index) => {
 
 const swiper = new Swiper('.swiper', {
   direction: 'vertical',
-  rewind: true,
+  loop: true,
   spaceBetween: 20,
-  effect: 'slide',
+  slidesPerView: 4,
   breakpoints: {
     1440: {
       slidesPerView: 6,
