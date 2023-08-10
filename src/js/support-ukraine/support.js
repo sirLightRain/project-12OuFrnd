@@ -3,7 +3,6 @@ import charities from './charities';
 import Swiper from 'swiper';
 import 'swiper/swiper.scss';
 
-
 const list = document.querySelector('.support-list');
 const html = charities.map(makeMarkup).join('');
 const swipeDownBtn = document.querySelector('.swiper-next');
@@ -32,13 +31,13 @@ const str = charities.map((element, index) => {
 
 const swiper = new Swiper('.swiper', {
   direction: 'vertical',
-  slidesPerView: 4,
   rewind: true,
   spaceBetween: 20,
   effect: 'slide',
   breakpoints: {
     1440: {
       slidesPerView: 6,
+      spaceBetween: 20,
     },
   },
 });

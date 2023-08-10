@@ -1,4 +1,4 @@
-import Notiflix from 'notiflix';
+// import Notiflix from 'notiflix';
 
 // -------------------     3апускаємо спіннер
 const loadingMessage = document.querySelector('.loader');
@@ -101,7 +101,7 @@ export function renderingBookCardAll(data) {
   ulSelectedBook.innerHTML = selectedBookCard;
 }
 
-//! ========================================================================= 07.08.2023 
+//! ========================================================================= 07.08.2023
 export function renderingBookBestSellers(data) {
   const ulSelectedBook = document.querySelector('.selected-books-js');
   const headerCategory = document.querySelector('.header-category');
@@ -128,7 +128,7 @@ export function renderingBookBestSellers(data) {
   });
   ulSelectedBook.innerHTML = selectedBookCard;
 }
-//! ========================================================================= 07.08.2023 
+//! ========================================================================= 07.08.2023
 
 // додаємо модалку на картку книги
 // кнопка See More
