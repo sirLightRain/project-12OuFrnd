@@ -1,3 +1,13 @@
+import Save from '../../images/save-the-children.png';
+import Save from '../../images/project-hope.png';
+import Save from '../../images/united24.png';
+import Save from '../../images/international-medical-corps.png';
+import Save from '../../images/medicins-sans-frontieres.png';
+import Save from '../../images/razom.png';
+import Save from '../../images/action-against-hunger.png';
+import Save from '../../images/world-vision.png';
+import Save from '../../images/sergiy-prytula.png';
+
 export default [
   {
     title: 'Save the children',
