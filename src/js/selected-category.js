@@ -143,7 +143,7 @@ let seeMoreBtn = document.querySelector('.see-more');
 
 // пагінація
 
-function buttonBookCardFunc(evt){
+export function buttonBookCardFunc(evt){
   if(!evt.target.classList.contains("card-animation")){
     return
   }

@@ -1,4 +1,4 @@
-import { renderingBookCard } from '../selected-category';
+import { renderingBookCard, buttonBookCardFunc } from '../selected-category';
 
 //* Функція для отримання топових книг з по категоріям
 async function fetchTopBooks(url) {
@@ -60,15 +60,18 @@ async function displayTopBooksByCategory(screenWidth) {
 
 // Функція створення розмітки картки книги
 function createBookMarkup(arr) {
+  const ulSelectedBook = document.querySelector('.selected-books-js');
+  ulSelectedBook.addEventListener("click", buttonBookCardFunc);
+
   return arr
     .map(
-      ({ _id, book_image, list_name, author, title }) => `
+      ({ _id, book_image, author, title }) => `
       <li class ="book-li">
       <div class="book-div">
         <img src="${book_image}" alt="${title}" class="book-img"/>
-        <button class="card-animation">
+        <a href="https://books-backend.p.goit.global/books/${_id}" class="card-animation">
           QUICK VIEW
-        </button>
+        </a>
       </div>
       <p class="book-title">${title}</p>
       <p class="book-author">${author}</p>
