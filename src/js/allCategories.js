@@ -49,19 +49,19 @@ function displayCategoryList(data) {
 }
 
 // load Top Books
-// async function loadTopBooks() {
-//   const serverTopBooks = 'https://books-backend.p.goit.global/books/top-books';
-//   const responce = await fetch(serverTopBooks, {
-//     method: 'GET',
-//   });
-//   const responceResult = await responce.json();
-//   console.log('Top books: ', responceResult);
-//   if (responceResult) {
-//     renderingBookCardAll(responceResult);
-//   } else {
-//     loadAllCategories.innerHTML = responceResult.message;
-//   }
-// }
+async function loadTopBooks() {
+  const serverTopBooks = 'https://books-backend.p.goit.global/books/top-books';
+  const responce = await fetch(serverTopBooks, {
+    method: 'GET',
+  });
+  const responceResult = await responce.json();
+  console.log('Top books: ', responceResult);
+  if (responceResult) {
+    renderingBookCardAll(responceResult);
+  } else {
+    loadAllCategories.innerHTML = responceResult.message;
+  }
+}
 
 // selected Category
 async function selectedCategory(event) {

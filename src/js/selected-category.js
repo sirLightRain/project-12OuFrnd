@@ -24,6 +24,7 @@ const END_OF_RESULTS_MESSAGE =
 const ERROR_TIMEOUT = 5000;
 const SUCCESS_TIMEOUT = 2500;
 
+
 export function reportSuccessOrFail(response, refs) {
   resetSearchForm(refs);
   if (response.data.title === 0) {
@@ -47,6 +48,7 @@ export function reachedLastPage() {
     svgSize: '220px',
   });
 }
+
 
 // рендеримо одну картку книги &  створюємо список карток з книгами
 export function renderingBookCard(data) {
@@ -75,7 +77,7 @@ export function renderingBookCard(data) {
   `;
   });
   ulSelectedBook.innerHTML = selectedBookCard;
-  ulSelectedBook.addEventListener('click', buttonBookCardFunc);
+  ulSelectedBook.addEventListener("click", buttonBookCardFunc)
 }
 
 export function renderingBookCardAll(data) {
@@ -103,10 +105,10 @@ export function renderingBookCardAll(data) {
     });
   });
   ulSelectedBook.innerHTML = selectedBookCard;
-  ulSelectedBook.addEventListener('click', buttonBookCardFunc);
+ulSelectedBook.addEventListener("click", buttonBookCardFunc)
 }
 
-//! ========================================================================= 07.08.2023
+//! ========================================================================= 07.08.2023 
 export function renderingBookBestSellers(data) {
   const ulSelectedBook = document.querySelector('.selected-books-js');
   const headerCategory = document.querySelector('.header-category');
@@ -119,61 +121,63 @@ export function renderingBookBestSellers(data) {
     books.forEach(({ book_image, title, author }) => {
       selectedBookCard += `
       <li class ="book-li">
-        <div class="book-div">
-          <img src="${book_image}" alt="${title}" class="book-img"/>
-          <button class="card-animation">
-            QUICK VIEW
-          </button>
-        </div>
-        <p class="book-title">${title}</p>
-        <p class="book-author">${author}</p>
-      </li>
+    <div class="book-div">
+    <img src="${book_image}" alt="${title}" class="book-img"/>
+    <button class="card-animation">
+    QUICK VIEW
+    </button>
+    </div>
+    <p class="book-title">${title}</p>
+    <p class="book-author">${author}</p>
+  </li>
   `;
     });
   });
   ulSelectedBook.innerHTML = selectedBookCard;
 }
-//! ========================================================================= 07.08.2023
+//! ========================================================================= 07.08.2023 
 
 // додаємо модалку на картку книги
 // кнопка See More
 let seeMoreBtn = document.querySelector('.see-more');
 
-// Функція, що зчитує клік по шторці з книги
-function buttonBookCardFunc(evt) {
-  if (!evt.target.classList.contains('card-animation')) {
-    return;
+// пагінація
+
+function buttonBookCardFunc(evt){
+  if(!evt.target.classList.contains("card-animation")){
+    return
   }
-  evt.preventDefault();
+  evt.preventDefault() 
   document.body.classList.add('disable-scroll');
-  const modalElDiv = document.querySelector('.modal-js');
+  const modalElDiv = document.querySelector(".modal-js");
   const bookUrl = evt.target.href;
-  console.dir(bookUrl);
+  console.dir(bookUrl)
   serviceBook(bookUrl)
-    .then(data => {
-      createBookMarkUp(data);
-      const btnClose = document.querySelector('.modal-close');
-      btnClose.addEventListener('click', closeLightbox);
-      const btnAdd = document.querySelector('.add-to-cart-btn');
-      btnAdd.addEventListener('click', handlerClickAdd);
+  .then((data) => {
+    
+    createBookMarkUp(data)
+    const btnClose = document.querySelector('.modal-close');
+    btnClose.addEventListener('click', closeLightbox); 
+    const btnAdd = document.querySelector('.add-to-cart-btn');
+    btnAdd.addEventListener('click', handlerClickAdd);
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
+    
 }
 
 function handlerClickAdd(evt) {
-  let arrBookLS = JSON.parse(localStorage.getItem('list')) || [];
-  // console.log(arrBookLS)
-  closeLightbox();
-  // console.dir(evt.target.previousSibling.parentElement.dataset.id)
-  const idChangeBook = `https://books-backend.p.goit.global/books/${evt.target.previousSibling.parentElement.dataset.id}`;
-  if (!arrBookLS.includes(idChangeBook)) {
+let arrBookLS =  JSON.parse(localStorage.getItem('list')) || [];
+// console.log(arrBookLS)
+  closeLightbox()
+  // console.dir(evt.target.previousSibling.parentElement.dataset.id) 
+  const idChangeBook = `https://books-backend.p.goit.global/books/${evt.target.previousSibling.parentElement.dataset.id }`;
+  if(!arrBookLS.includes(idChangeBook)){
     arrBookLS.push(idChangeBook);
-    evt.currentTarget.textContent = 'REMOVE FROM THE SHOPPING LIST';
-  } else {
-    arrBookLS.pop(idChangeBook);
-    evt.currentTarget.textContent = 'ADD TO SHOPPING LIST';
+    evt.currentTarget.textContent = "REMOVE FROM THE SHOPPING LIST"
   }
-  localStorage.setItem('list', JSON.stringify(arrBookLS));
+  else{
+    arrBookLS.pop(idChangeBook);
+    evt.currentTarget.textContent = "ADD TO SHOPPING LIST"
+  }
+  localStorage.setItem('list', JSON.stringify(arrBookLS))
 }
-
-export { handlerClickAdd, buttonBookCardFunc };
