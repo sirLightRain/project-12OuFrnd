@@ -8,7 +8,7 @@ const container = document.querySelector('.js-list-bestsellers');
 const PRODUCT_LS_KEY = 'Shopping List';
 
 // container.insertAdjacentHTML('beforeend', createMarkup(topBooks));
-container.addEventListener('click', handlerAdd);
+// container.addEventListener('click', handlerAdd);
 
 function createMarkup(arr) {
   return arr

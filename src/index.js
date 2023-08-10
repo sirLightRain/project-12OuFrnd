@@ -2,6 +2,6 @@
 // test("Alex");
 
 // import { displayTopBooksByCategory } from "./js/bestSellersFech";
-import { displayTopBooksByCategory } from "./js/bestSellersOleksii";
-displayTopBooksByCategory();
+// import { displayTopBooksByCategory } from "./js/bestSellersOleksii";
+// displayTopBooksByCategory();
 

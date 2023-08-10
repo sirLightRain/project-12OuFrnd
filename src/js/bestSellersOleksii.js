@@ -30,31 +30,31 @@ function getDataFromLocal() {
 }
 
 //* ОСНОВНА Функція відмальовки
-async function displayTopBooksByCategory(screenWidth) {
-  try {
-    // Отримуємо дані з локального сховища
-    const localData = getDataFromLocal();
+// async function displayTopBooksByCategory(screenWidth) {
+//   try {
+//     // Отримуємо дані з локального сховища
+//     const localData = getDataFromLocal();
 
-    if (localData) {
-      // Якщо дані є в локальному сховищі, беремо їх
-      console.log('Дані з локального сховища: ', localData);
-      // Виконуйте далі вашу логіку з використанням даних
-      renderData(localData, screenWidth);
-    } else {
-      // Якщо дані відсутні в локальному сховищі, звертайтесь до сервера
-      const url = 'https://books-backend.p.goit.global/books/top-books';
-      const data = await fetchTopBooks(url);
+//     if (localData) {
+//       // Якщо дані є в локальному сховищі, беремо їх
+//       console.log('Дані з локального сховища: ', localData);
+//       // Виконуйте далі вашу логіку з використанням даних
+//       renderData(localData, screenWidth);
+//     } else {
+//       // Якщо дані відсутні в локальному сховищі, звертайтесь до сервера
+//       const url = 'https://books-backend.p.goit.global/books/top-books';
+//       const data = await fetchTopBooks(url);
 
-      // Зберігаємо дані у локальному сховищі для подальшого використання
-      saveDataToLocal(data);
-      console.log('Дані з сервера: ', data);
-      // Виконайте далі вашу логіку з використанням даних
-      renderData(data, screenWidth);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-}
+//       // Зберігаємо дані у локальному сховищі для подальшого використання
+//       saveDataToLocal(data);
+//       console.log('Дані з сервера: ', data);
+//       // Виконайте далі вашу логіку з використанням даних
+//       renderData(data, screenWidth);
+//     }
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 
 // Функція створення розмітки картки книги
 function createBookMarkup(arr) {
@@ -163,4 +163,4 @@ function handleInitialResize() {
 // Додати обробник події при завантаженні сторінки
 window.addEventListener('load', handleInitialResize);
 
-export { displayTopBooksByCategory };
+// export { displayTopBooksByCategory };
