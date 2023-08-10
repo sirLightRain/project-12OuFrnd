@@ -23,3 +23,9 @@
 // Підключення стилів modal-pop-up
 @import './modal';
 @import '/node_modules/basiclightbox/dist/basicLightbox.min.css';
+// Дадаємо точки перелому
+@import './breakpoints';
+// секція Shopping List
+@import './shopping-list';
+// Вдмальовка карток Shopping List
+@import './card';
