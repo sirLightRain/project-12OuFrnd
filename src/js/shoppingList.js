@@ -68,5 +68,5 @@ export async function makeCard() {
   const cardsArray = await getCards();
   const card = renderCard(cardsArray);
 
-  cardContainer.insertAdjacentHTML('afterbegin', card);
+  // cardContainer.insertAdjacentHTML('afterbegin', card);
 }
