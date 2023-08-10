@@ -1,6 +1,7 @@
 import {
   handlerClickAdd,
   buttonBookCardFunc,
+  renderingBookCard,
   renderingBookCardAll,
 } from '../selected-category';
 import Notiflix from 'notiflix';
@@ -158,7 +159,7 @@ function renderData(data, screenWidth) {
 }
 
 //! Функція для кнопки, щоб перейти на відповідну категорію
-function handleSeeMoreClick(event) {
+async function handleSeeMoreClick(event) {
   const category = event.currentTarget.getAttribute('data-category');
 
   // Отримуємо дані з локального сховища
@@ -168,24 +169,26 @@ function handleSeeMoreClick(event) {
     console.log('Дані з локального сховища: ', localData);
 
     // Знаходимо відповідну категорію
-    const selectedCategory = localData.find(item => item.list_name === category);
-    renderingBookCardAll([selectedCategory]);
+    const selectedCategory = localData.find(
+      item => item.list_name === category
+    );
+    console.log('selectedCategory', selectedCategory);
+    try {
+      // Робимо запит на сервер для категорії книг
+      const url = `https://books-backend.p.goit.global/books/category?category=${selectedCategory.list_name}`;
+      const data = await fetchTopBooks(url);
 
-  //   if (selectedCategory) {
-  //     // Використовуйте відповідну функцію відмальовки залежно від категорії
-  //     if (category === 'Best Sellers') {
-  //       renderingBookBestSellers([selectedCategory]);
-  //     } else if (category === 'All categories') {
-  //       renderingBookCardAll([selectedCategory]);
-  //     } else {
-  //       renderingBookCard([selectedCategory]);
-  //     }
-  //   }
-  // } else {
-  //   // Ваша логіка для отримання та відмальовування даних з сервера
+      console.log(
+        'selectedCategory: =>',
+        data
+      );
+      // Виконуємо відмальовку книг з отриманими даними
+      renderingBookCard(data);
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
-
 
 //* Функція для отримання ширини екрану
 function getScreenWidth() {
