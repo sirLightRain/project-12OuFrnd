@@ -24,7 +24,7 @@ function renderCard(a) {
        <img class="card__img" src="${i.book_image}" alt="" loading="lazy" />
        <div class="card__text">
         <div class="card__top">
-          <div>
+          <div class="book-name-width">
             <h2 class="card__title">${i.title}</h2>
             <p class="card__genre">${i.list_name}</p>
           </div>
@@ -35,16 +35,16 @@ function renderCard(a) {
           </button>
         </div>
 
-        <div class="card__description-container">
+        
           <p class="card__description">${i.description}</p>
-        </div>
+        
 
           <div class="card__bottom">
             <p class="card__author">${i.author}</p>
             <div class="card__links">
                 <a class="card__link" href="${i.buy_links[0].url}"
                   ><svg width="32" height="11">
-                    <use href="./images/favicon.svg#icon-amazon"></use>
+                    <use href="../images/favicon.svg#icon-amazon"></use>
                 </svg>
                 </a>
                 <a class="card__link" href="${i.buy_links[1].url}"

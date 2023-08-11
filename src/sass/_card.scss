@@ -1,7 +1,7 @@
 .card {
   width: 100%;
   margin-bottom: 20px;
-  margin-top: 100px;
+  margin-top: 20px;
   display: flex;
   border-radius: 16px;
   border: 2px solid rgba(79, 46, 232, 0.4);
@@ -73,6 +73,7 @@
   }
 
   &__title {
+    width: 150px;
     margin-bottom: 4px;
     font-size: 16px;
     line-height: 112.5%;
@@ -167,4 +168,22 @@
 
 .card__description-container {
   height: 68px;
+}
+
+.cards-container {
+  margin-top: 100px;
+}
+
+.book-name-width {
+  width: 150px;
+}
+
+@media screen and (min-width: 768px) {
+  .book-name-width {
+    width: 200px;
+  }
+
+  .card__title {
+    width: 200px;
+  }
 }
