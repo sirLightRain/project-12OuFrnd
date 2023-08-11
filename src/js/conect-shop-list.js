@@ -8,7 +8,7 @@ function initLocalStorage() {
   // получаем в перемен данные из localStorage
   let contentLocalStorage = JSON.parse(localStorage.getItem('list'));
   let lengthContentLocalStorage = contentLocalStorage.length;
-  console.log(lengthContentLocalStorage);
+  // console.log(lengthContentLocalStorage);
 
   // если длина массива с данными != 0 - ввызываем функцию отрисовки карточек
   if (contentLocalStorage !== null && contentLocalStorage.length !== 0) {

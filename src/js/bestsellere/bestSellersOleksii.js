@@ -38,7 +38,7 @@ async function displayTopBooksByCategory(screenWidth) {
 
     if (localData) {
       // Якщо дані є в локальному сховищі, беремо їх
-      console.log('Дані з локального сховища: ', localData);
+
       // Виконуйте далі вашу логіку з використанням даних
 
       renderData(localData, screenWidth);
@@ -49,7 +49,7 @@ async function displayTopBooksByCategory(screenWidth) {
 
       // Зберігаємо дані у локальному сховищі для подальшого використання
       saveDataToLocal(data);
-      console.log('Дані з сервера: ', data);
+  
       // Виконайте далі вашу логіку з використанням даних
       renderData(data, screenWidth);
     }
@@ -152,19 +152,19 @@ async function handleSeeMoreClick(event) {
   const localData = getDataFromLocal();
 
   if (localData) {
-    console.log('Дані з локального сховища: ', localData);
+
 
     // Знаходимо відповідну категорію
     const selectedCategory = localData.find(
       item => item.list_name === category
     );
-    console.log('selectedCategory', selectedCategory);
+  
     try {
       // Робимо запит на сервер для категорії книг
       const url = `https://books-backend.p.goit.global/books/category?category=${selectedCategory.list_name}`;
       const data = await fetchTopBooks(url);
 
-      console.log('selectedCategory: =>', data);
+  
       // Виконуємо відмальовку книг з отриманими даними
       renderingBookCard(data);
     } catch (error) {

@@ -61,7 +61,7 @@ export function renderingBookCard(data) {
   headerCategory.textContent = `${words.slice(0, words.length - 1).join(' ')} `;
   lastWord.textContent = `${words[words.length - 1]}`;
 
-  console.log(data);
+  // console.log(data);
   data.forEach(({ book_image, title, author, _id }) => {
     selectedBookCard += `
     <li class ="book-li">
@@ -87,7 +87,7 @@ export function renderingBookCardAll(data) {
   headerCategory.textContent = `All `;
   lastWord.textContent = ` Categories`;
   let selectedBookCard = ``;
-  console.log(data);
+  // console.log(data);
   data.forEach(({ books }) => {
     books.forEach(({ book_image, title, author, _id }) => {
       selectedBookCard += `
@@ -116,7 +116,7 @@ export function renderingBookBestSellers(data) {
   headerCategory.textContent = `All `;
   lastWord.textContent = ` Categories`;
   let selectedBookCard = ``;
-  console.log(data);
+  // console.log(data);
   data.forEach(({ books }) => {
     books.forEach(({ book_image, title, author }) => {
       selectedBookCard += `
@@ -151,7 +151,7 @@ export function buttonBookCardFunc(evt){
   document.body.classList.add('disable-scroll');
   const modalElDiv = document.querySelector(".modal-js");
   const bookUrl = evt.target.href;
-  console.dir(bookUrl)
+  // console.dir(bookUrl)
   serviceBook(bookUrl)
   .then((data) => {
     
@@ -167,9 +167,9 @@ export function buttonBookCardFunc(evt){
 
 function handlerClickAdd(evt) {
 let arrBookLS =  JSON.parse(localStorage.getItem('list')) || [];
-// console.log(arrBookLS)
+
   closeLightbox()
-  // console.dir(evt.target.previousSibling.parentElement.dataset.id) 
+
   const idChangeBook = `https://books-backend.p.goit.global/books/${evt.target.previousSibling.parentElement.dataset.id }`;
   if(!arrBookLS.includes(idChangeBook)){
     arrBookLS.push(idChangeBook);

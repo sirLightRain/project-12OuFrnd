@@ -3,9 +3,7 @@ import { renderingBookCardAll } from './selected-category';
 import { renderingBookBestSellers } from './selected-category';
 import Notiflix from 'notiflix';
 
-//! ================
 import { displayTopBooksByCategory } from './bestsellere/bestSellersOleksii'; 
-//! ================ 
 
 const listOfAllCategories = document.querySelector('.list-of-all-categories');
 
@@ -16,7 +14,7 @@ async function loadAllCategories() {
     method: 'GET',
   });
   const responceResult = await responce.json();
-  console.log('Category:', responceResult);
+
   if (responceResult) {
     displayCategoryList(responceResult);
   } else {
@@ -55,7 +53,7 @@ async function loadTopBooks() {
     method: 'GET',
   });
   const responceResult = await responce.json();
-  console.log('Top books: ', responceResult);
+
   if (responceResult) {
     renderingBookCardAll(responceResult);
   } else {
@@ -72,7 +70,7 @@ async function selectedCategory(event) {
     });
     const responceResult = await responce.json();
     renderingBookCard(responceResult);
-    console.log('selected Category: ', responceResult);
+
   }
 }
 

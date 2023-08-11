@@ -45,7 +45,7 @@ async function loadTopBooks() {
     method: 'GET',
   });
   const responceResult = await responce.json();
-  //   console.log('Top books: ', responceResult);
+ 
   if (responceResult) {
   } else {
     allCategories.innerHTML = responceResult.message;
@@ -60,7 +60,7 @@ async function selectedCategory(event) {
       method: 'GET',
     });
     const responceResult = await responce.json();
-    console.log('selected Category: ', responceResult);
+  
   }
 }
 

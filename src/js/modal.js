@@ -26,9 +26,9 @@ let currentLightboxInstance = null;
 
 export function createBookMarkUp({ _id, book_image, list_name, author, title, description,amazon_product_url,buy_links} = {}, url) {
     const books = JSON.parse(localStorage.getItem('list')) || [];
-    console.log(books)
+    // console.log(books)
     const isInList = `https://books-backend.p.goit.global/books/${_id}`;
-    console.dir(`${isInList}`)
+    // console.dir(`${isInList}`)
     const buyLi = buy_links
     const instance = basicLightbox.create(`<div class="modal" data-id="${_id}">
                 <button class="modal-close">
