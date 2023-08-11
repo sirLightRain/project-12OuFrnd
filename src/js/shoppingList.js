@@ -34,7 +34,11 @@ function renderCard(a) {
             </svg>
           </button>
         </div>
-        <p class="card__description">${i.description}</p>
+
+        <div class="card__description-container">
+          <p class="card__description">${i.description}</p>
+        </div>
+
           <div class="card__bottom">
             <p class="card__author">${i.author}</p>
             <div class="card__links">
