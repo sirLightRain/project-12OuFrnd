@@ -1,108 +1,115 @@
 @media screen and (max-width: 375px) {
+  .div-all-categories {
+    padding-right: 20px;
+    height: 228px;
+    overflow: auto;
+    width: 335px;
+    margin-bottom: 86px;
+    margin-right: 32px;
+  }
 
+  .categor_item.all_catecor {
+    text-transform: uppercase;
+  }
 
-    .div-all-categories{
-        padding-right: 20px;
-        height: 228px;
-        overflow: auto;
-        width: 335px;
-        margin-bottom: 86px;
-        margin-right: 32px;
-    }
+  .categor_item:last-child {
+    margin-bottom: 0;
+  }
 
-    .categor_item.all_catecor{
-        text-transform: uppercase;
-    }
+  .categor_item {
+    margin-bottom: 24px;
+  }
+  .categor_link {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.33;
+    font-family: 'DM Sans';
+    color: rgba(17, 17, 17, 0.6);
+    transition-property: color, font-weight;
+    transition-duration: 500ms;
+    transition-timing-function: linear;
+    cursor: default;
+  }
 
-    .categor_item:last-child{
-        margin-bottom: 0;
-    }
-
-    .categor_item{
-        margin-bottom: 24px;
-    }
-    .categor_link{
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 1.33;
-        font-family: 'DM Sans';
-        color: rgba(17, 17, 17, 0.60);
-        transition-property: color, font-weight;
-        transition-duration: 500ms;
-        transition-timing-function: linear;
-        cursor: default;
-    }
-
-    .categor_link:hover{
-        color: var(--violet);
-        font-weight: 700;
-    }
+  .categor_link:hover {
+    color: var(--violet);
+    font-weight: 700;
+  }
 }
 
+@media screen and (min-width: 375px) {
+  .div-all-categories {
+    padding-right: 20px;
+    height: 228px;
+    overflow: auto;
+    width: 335px;
+    margin-bottom: 40px;
+    margin-right: 32px;
+  }
+  /* Стилізація полоси прокрутки */
+  .div-all-categories::-webkit-scrollbar {
+    width: 8px; /* Ширина полоси прокрутки */
+  }
+  .div-all-categories::-webkit-scrollbar-thumb {
+    height: 114px; /* Ширина ковзана (полоси прокрутки) */
+    background-color: #888; /* Колір ковза (полоси прокрутки) */
+    border-radius: 4px; /* Радіус кутів ковза */
+  }
 
-@media screen and (min-width: 375px){
-    .div-all-categories {
-        padding-right: 20px;
-        height: 228px;
-        overflow: auto;
-        width: 335px;
-        margin-bottom: 40px;
-        margin-right: 32px;
-    }
-    
-    .categor_item.all_catecor {
-        text-transform: uppercase;
-    }
-    
+  .div-all-categories::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Колір фону полоси прокрутки */
+  }
 
-    .categor_item:last-child {
-        margin-bottom: 0;
-    }
-    
-    .categor_item {
-        margin-bottom: 24px;
-    }
-    
-    .categor_link {
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 1.1;
-        font-family: 'DM Sans';
-        color: rgba(17, 17, 17, 0.60);
-        transition: color 500ms linear, text-transform 500ms linear;
-        cursor: default;
-    }
-    
-    .categor_link:hover {
-        color: var(--violet);
-        font-weight: 700;
-        text-transform: uppercase;
-    }
+  .categor_item.all_catecor {
+    text-transform: uppercase;
+  }
+
+  .categor_item:last-child {
+    margin-bottom: 0;
+  }
+
+  .categor_item {
+    margin-bottom: 24px;
+  }
+
+  .categor_link {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.1;
+    font-family: 'DM Sans';
+    color: rgba(17, 17, 17, 0.6);
+    transition: color 500ms linear, text-transform 500ms linear;
+    cursor: default;
+  }
+
+  .categor_link:hover {
+    color: var(--violet);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
 }
 
+@media screen and (min-width: 768px) {
+  .div-all-categories {
+    width: 337px;
+    height: 472;
+    margin-bottom: 0px;
+    margin-right: 32px;
+  }
 
+  .categor_item {
+    margin-bottom: 32px;
+  }
 
-@media screen and (min-width: 768px){
-    .div-all-categories {
-        width: 337px;
-        height: 472;
-        margin-bottom: 0px;
-        margin-right: 32px;
-    }   
-
-    .categor_item {
-        margin-bottom: 32px;
-    }
-    
-    .categor_link{
-        font-size: 18px;
-        line-height: 1.33;
-    }
+  .categor_link {
+    font-size: 18px;
+    line-height: 1.33;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-    .div-all-categories {
+  .div-all-categories {
     width: 328px;
     margin-bottom: 86px;
-    }   
+  }
 }
