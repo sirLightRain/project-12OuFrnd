@@ -20,12 +20,12 @@ const checkBox = document.querySelector(".theme-checkbox");
 if (currentСolorSwitch) {
   elementBody.classList.add(currentСolorSwitch);
   if (currentСolorSwitch === 'black-theme') {
-    checkBox.ckecked = true;
+    checkBox.checked = true;
   }
 }
 
 function switchTheme(e) {
-  if (e.target.ckecked) {
+  if (e.target.checked) {
     elementBody.classList.remove('theme-light');
     elementBody.classList.add('black-theme');
 
