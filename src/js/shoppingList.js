@@ -76,14 +76,49 @@ function renderCard(a) {
 }
 
 function deleteCard() {
+  let bookId = [];
+
   cardContainer.addEventListener('click', e => {
+    const books = JSON.parse(localStorage.getItem('list'));
     const currentCard = e.target.parentNode.parentNode.parentNode;
 
     if (e.target.tagName === 'BUTTON') {
-      currentCard.remove();
+      const title =
+        e.target.previousElementSibling.firstElementChild.textContent;
+
+      Promise.all(acceptLink(books)).then(book => {
+        book.map(b => {
+          if (b.title === title) {
+            bookId = `https://books-backend.p.goit.global/books/${b._id}`;
+            const i = books.indexOf(bookId);
+
+            currentCard.remove();
+            books.splice(i, 1);
+
+            localStorage.setItem('list', JSON.stringify(books));
+          }
+        });
+      });
     } else if (e.target.parentNode.tagName === 'BUTTON') {
-      currentCard.parentNode.remove();
+      const title =
+        e.target.parentNode.previousElementSibling.firstElementChild
+          .textContent;
+
+      Promise.all(acceptLink(books)).then(book => {
+        book.map(b => {
+          if (b.title === title) {
+            bookId = `https://books-backend.p.goit.global/books/${b._id}`;
+            const i = books.indexOf(bookId);
+
+            currentCard.parentNode.remove();
+            books.splice(i, 1);
+
+            localStorage.setItem('list', JSON.stringify(books));
+          }
+        });
+      });
     }
+    return;
   });
 }
 
