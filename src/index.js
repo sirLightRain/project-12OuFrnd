@@ -7,9 +7,4 @@ import '/src/js/support-ukraine/charities.js';
 import './js/header';
 
 //! Pop Up
-import './js/modal.js'
-
-//! Творення карток в шопінг лісті 
-import { makeCard } from './js/shoppingList';
-
-makeCard();
+import './js/modal.js';
