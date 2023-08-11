@@ -376,6 +376,11 @@ input:checked+.slider:before {
 }
 
 @media screen and (min-width:1280px) {
+
+    .header-box {
+        padding: 0px;
+    }
+
     .container {
         max-width: 1440px;
         margin-right: auto;
