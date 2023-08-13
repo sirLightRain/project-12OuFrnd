@@ -1,37 +1,40 @@
 .hero-title {
-    font-size: 32px;
-    margin-bottom: 40px;
+  font-size: 32px;
+  margin-bottom: 40px;
 }
 
 .bf-title {
-font-size: 14px;
-font-style: normal;
-color: var(--grey);
+  font-size: 14px;
+  font-style: normal;
+  color: var(--grey);
 }
 
 .section-book {
-width: 335px;
-height: 571px;
+  width: 335px;
+  height: 571px;
 }
 
 .colored-text {
-color: var(--violet);
+  color: var(--violet);
 }
 
 .see-more-btn {
-    background-color: var(--white);
-    padding: 14px 28px;
-    border-radius: 25px;
-    border-color: var(--violet);
-    border-width: 2px;
-    font-style: bold;
-    font-size: 14px;
-    display: flex;
-    justify-content: flex-end;
+  background-color: var(--white);
+  padding: 14px 28px;
+  border-radius: 25px;
+  border-color: var(--violet);
+  border-width: 2px;
+  font-style: bold;
+  font-size: 14px;
+  display: flex;
+  justify-content: flex-end;
 }
-
+.black-theme .see-more-btn {
+  color: var(--white);
+  background-color: var(--black-light);
+}
 .see-more-btn:hover,
 .see-more-btn:focus {
-    background-color: var(--violet);
-    color: var(--white);
+  background-color: var(--violet);
+  color: var(--white);
 }

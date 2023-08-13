@@ -37,4 +37,4 @@ function switchTheme(e) {
     localStorage.setItem('theme', 'theme-light');
   }
 }
-themeSwitch.addEventListener('change',switchTheme,false);
+themeSwitch.addEventListener('change', switchTheme, false);

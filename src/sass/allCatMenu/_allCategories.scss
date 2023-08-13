@@ -30,11 +30,16 @@
     transition-timing-function: linear;
     cursor: default;
   }
-
+  .black-theme .categor_link {
+    color: rgba(0, 0, 0, 0.4);
+  }
   .categor_link:hover {
     color: var(--violet);
     font-weight: 700;
   }
+}
+.black-theme .categor_link:hover {
+  color: var(--yellow);
 }
 
 @media screen and (min-width: 375px) {
@@ -55,11 +60,15 @@
     background-color: #888; /* Колір ковза (полоси прокрутки) */
     border-radius: 4px; /* Радіус кутів ковза */
   }
-
+  .black-theme .div-all-categories::-webkit-scrollbar-thumb {
+    background-color: black;
+  }
   .div-all-categories::-webkit-scrollbar-track {
     background-color: #f1f1f1; /* Колір фону полоси прокрутки */
   }
-
+  .black-theme .div-all-categories::-webkit-scrollbar-track {
+    background-color: var(--black-light);
+  }
   .categor_item.all_catecor {
     text-transform: uppercase;
   }
@@ -81,7 +90,9 @@
     transition: color 500ms linear, text-transform 500ms linear;
     cursor: default;
   }
-
+  .black-theme .categor_link {
+    color: grey;
+  }
   .categor_link:hover {
     color: var(--violet);
     font-weight: 700;

@@ -30,12 +30,16 @@
   letter-spacing: -0.4px;
   color: var(--gray);
 }
+
 .book-title {
   font-weight: 700;
   font-size: 16px;
   line-height: 18px;
   letter-spacing: -0.4px;
   margin-bottom: 4px;
+}
+.black-theme .book-title {
+  color: var(--white);
 }
 .book-div {
   position: relative;
@@ -175,6 +179,7 @@
   line-height: 38px;
   letter-spacing: -1.28px;
 }
+
 @media screen and (min-width: 768px) {
   .header-sc {
     font-size: 48px;
@@ -185,6 +190,9 @@
 
 .header-category {
   color: var(--black);
+}
+.black-theme .header-category {
+  color: var(--white);
 }
 .header-last-word {
   color: var(--violet);

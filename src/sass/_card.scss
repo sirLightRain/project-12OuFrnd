@@ -151,7 +151,6 @@
     line-height: 116.667%;
     letter-spacing: -0.48px;
     color: var(--gray);
-
   }
 
   &__links {
@@ -164,7 +163,15 @@
     }
   }
 }
-
+.black-theme .card {
+  background-color: black;
+  &__title {
+    color: var(--white);
+  }
+  &__description {
+    color: var(--white);
+  }
+}
 .card__description-container {
   height: 68px;
 }

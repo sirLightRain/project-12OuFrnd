@@ -142,11 +142,16 @@
   .number-color {
     color: #111;
   }
-
+  .black-theme .number-color {
+    color: var(--white);
+  }
   .number-color-active {
     color: #ffffff;
   }
-
+  .black-theme .number-color-active {
+    background-color: var(--white);
+    color: var(--black);
+  }
   .page-item:not(.dots):hover,
   .page-item:not(.dots):focus {
     animation: animatePg 1500ms ease-in-out 500ms;
@@ -248,5 +253,7 @@
     justify-content: space-between;
   }
 
-  .shop-pagin-cont {width: 996px;}
+  .shop-pagin-cont {
+    width: 996px;
+  }
 }
